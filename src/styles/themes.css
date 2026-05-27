@@ -1,0 +1,8 @@
+/* Additional theme overrides (loaded as second layer if ever needed). */
+:root {
+  --section-pad-y: clamp(80px, 12vh, 180px);
+}
+
+[data-section] {
+  padding-block: var(--section-pad-y);
+}

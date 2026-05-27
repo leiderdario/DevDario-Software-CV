@@ -1,0 +1,58 @@
+import type { Polaroid } from '../types';
+
+export const POLAROIDS: Polaroid[] = [
+  {
+    id: 'zaragoza',
+    place: 'Zaragoza',
+    date: 'Sept 2025',
+    caption: { es: 'La ponencia de ALIRA.', en: 'The ALIRA talk.' },
+    gradient: ['#ff6b35', '#3a1402'],
+    glyph: 'A',
+    rotate: -8,
+  },
+  {
+    id: 'mompox',
+    place: 'Mompox',
+    date: 'Jun 2025',
+    caption: { es: 'Tercer Seminario CTI.', en: 'Third CTI Seminar.' },
+    gradient: ['#3a8dde', '#0c2540'],
+    glyph: 'CTI',
+    rotate: 6,
+  },
+  {
+    id: 'cartagena',
+    place: 'Cartagena',
+    date: '2023',
+    caption: { es: 'Última noche en Dran Digital.', en: 'Last night at Dran Digital.' },
+    gradient: ['#7c4dff', '#180a2e'],
+    glyph: 'DD',
+    rotate: -3,
+  },
+  {
+    id: 'mahates',
+    place: 'Mahates',
+    date: 'Ene 2026',
+    caption: { es: 'Kickoff del proyecto turístico.', en: 'Tourism project kickoff.' },
+    gradient: ['#26c281', '#062c1c'],
+    glyph: 'M',
+    rotate: 10,
+  },
+  {
+    id: 'medellin',
+    place: 'Medellín',
+    date: '2024',
+    caption: { es: 'Bootcamp Nequi.', en: 'Nequi bootcamp.' },
+    gradient: ['#f06292', '#2a0814'],
+    glyph: 'N',
+    rotate: -5,
+  },
+  {
+    id: 'sanjuan',
+    place: 'San Juan Nepomuceno',
+    date: '2025',
+    caption: { es: 'Econometría espacial.', en: 'Spatial econometrics.' },
+    gradient: ['#00bcd4', '#022831'],
+    glyph: 'σ',
+    rotate: 2,
+  },
+];

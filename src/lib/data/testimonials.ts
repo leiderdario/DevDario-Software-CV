@@ -1,0 +1,98 @@
+import type { Testimonial } from '../types';
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 'mendoza',
+    name: 'Carlos Mendoza',
+    role: { es: 'CTO', en: 'CTO' },
+    company: 'Dran Digital',
+    initials: 'CM',
+    gradient: ['#ff6b35', '#7a1f00'],
+    procedural: true,
+    duration: '00:42',
+    quote: {
+      es: 'Le pasé el módulo de optimización de base de datos. Volvió con 35% menos de latencia y documentación que sigo usando dos años después.',
+      en: 'I handed him the database optimization module. He came back with 35% less latency and docs I still use two years later.',
+    },
+  },
+  {
+    id: 'restrepo',
+    name: 'Dra. María Helena Restrepo',
+    role: { es: 'Decana, Facultad de Ingeniería', en: 'Dean, Faculty of Engineering' },
+    company: 'Universidad de Cartagena',
+    initials: 'MR',
+    gradient: ['#3a8dde', '#0c2540'],
+    procedural: false,
+    quote: {
+      es: 'Pocas veces un estudiante de pregrado representa a la facultad en un congreso internacional. Leider lo hizo y nos dejó bien parados.',
+      en: 'An undergraduate rarely represents the faculty at an international forum. Leider did, and he made us look good.',
+    },
+  },
+  {
+    id: 'bolanos',
+    name: 'Andrés Bolaños',
+    role: { es: 'Alcalde Municipal', en: 'Town Mayor' },
+    company: 'Mahates, Bolívar',
+    initials: 'AB',
+    gradient: ['#26c281', '#062c1c'],
+    procedural: true,
+    duration: '01:05',
+    quote: {
+      es: 'Le entregamos una idea y nos devolvió un plan técnico, un equipo y fechas. Eso ya es rarísimo en este sector.',
+      en: 'We gave him an idea. He gave back a technical plan, a team, and dates. That alone is rare in this sector.',
+    },
+  },
+  {
+    id: 'sanz',
+    name: 'Dr. Javier Sanz Martínez',
+    role: { es: 'Coordinador de IA', en: 'AI Coordinator' },
+    company: 'Universidad de Zaragoza',
+    initials: 'JS',
+    gradient: ['#7c4dff', '#180a2e'],
+    procedural: false,
+    quote: {
+      es: 'Fundió visión, voz y biometría en un solo sistema y lo defendió frente a la sala. No improvisó: sabía por qué cada decisión.',
+      en: 'He fused vision, voice, and biometrics into one system and defended it to the room. Nothing improvised — he knew why each choice was made.',
+    },
+  },
+  {
+    id: 'gomez',
+    name: 'Laura Gómez',
+    role: { es: 'Lead Product Manager', en: 'Lead Product Manager' },
+    company: 'Nequi',
+    initials: 'LG',
+    gradient: ['#f06292', '#2a0814'],
+    procedural: false,
+    quote: {
+      es: 'Cerró incidencias críticas con 95% de satisfacción y automatizó el flujo de consentimiento que hoy usamos en todos los productos.',
+      en: 'He closed critical incidents at 95% satisfaction and automated the consent flow we now run across every product.',
+    },
+  },
+  {
+    id: 'quintero',
+    name: 'Jorge Quintero',
+    role: { es: 'CEO', en: 'CEO' },
+    company: 'SmartAssets',
+    initials: 'JQ',
+    gradient: ['#00bcd4', '#022831'],
+    procedural: true,
+    duration: '00:38',
+    quote: {
+      es: 'Sus interfaces bajaron la carga un 30% y se ven impecables en cualquier pantalla. Entrega rápido y no toca volver atrás.',
+      en: 'His interfaces cut load time by 30% and look flawless on any screen. He ships fast and you never have to redo it.',
+    },
+  },
+  {
+    id: 'perez',
+    name: 'Diana Pérez',
+    role: { es: 'Co-fundadora', en: 'Co-founder' },
+    company: '3DIGIT-ALL FACTORY',
+    initials: 'DP',
+    gradient: ['#ff9f43', '#3a1a00'],
+    procedural: false,
+    quote: {
+      es: 'Como cofundador, Leider marca la dirección técnica del estudio. Discute, decide y luego entrega. En ese orden.',
+      en: 'As co-founder, Leider sets the studio’s technical direction. He argues, decides, then ships. In that order.',
+    },
+  },
+];
