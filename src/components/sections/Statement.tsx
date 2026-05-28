@@ -13,9 +13,9 @@ export function Statement() {
       data-section="statement"
       data-bg="#1a1410"
       style={{ '--stack-index': 0, zIndex: 1 } as CSSProperties}
-      className="sticky-stack border-y border-[var(--color-border)] bg-[#1a1410] py-[var(--section-pad-y,160px)]"
+      className="sticky-stack border-y border-[var(--color-border)] bg-[#1a1410] py-[var(--section-pad-y,96px)]"
     >
-      <div className="container-x flex flex-col items-start gap-12">
+      <div className="container-x flex flex-col items-start gap-8">
         <SplitTextReveal
           as="h2"
           type="lines"

@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { NAV_LINKS } from '@/lib/data/nav';
+import { NAV_LINKS, CV_PDF_HREF } from '@/lib/data/nav';
 import { useTranslation } from '@/lib/i18n';
 import { LangToggle } from '@/components/ui/LangToggle';
 import { cn } from '@/lib/cn';
+import { Download } from 'lucide-react';
 
 export function Nav() {
   const { lang, t } = useTranslation();
@@ -58,6 +59,15 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <LangToggle />
           <a
+            href={CV_PDF_HREF}
+            download
+            className="hidden items-center gap-1.5 rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] md:inline-flex"
+            data-cursor="open"
+          >
+            <Download size={14} />
+            {t('nav.cv')}
+          </a>
+          <a
             href="#contact"
             className="hidden rounded-full bg-[var(--color-text)] px-4 py-2 text-xs font-medium text-[var(--color-bg)] transition-colors hover:bg-[var(--color-accent)] md:inline-block"
             data-cursor="open"
@@ -93,6 +103,17 @@ export function Nav() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={CV_PDF_HREF}
+                download
+                className="inline-flex items-center gap-2 font-serif text-2xl text-[var(--color-accent)]"
+                onClick={() => setOpen(false)}
+              >
+                <Download size={20} />
+                {t('nav.cv')}
+              </a>
+            </li>
           </ul>
         </div>
       )}

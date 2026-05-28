@@ -1,6 +1,6 @@
 /* Additional theme overrides (loaded as second layer if ever needed). */
 :root {
-  --section-pad-y: clamp(80px, 12vh, 180px);
+  --section-pad-y: clamp(56px, 8vh, 112px);
 }
 
 [data-section] {

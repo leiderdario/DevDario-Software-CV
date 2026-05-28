@@ -54,13 +54,6 @@ export type Education = {
   details?: BiText;
 };
 
-export type PressItem = {
-  id: string;
-  index: string;
-  title: BiText;
-  meta: BiText;
-};
-
 export type TrustedItem = {
   id: string;
   name: string;
@@ -72,64 +65,8 @@ export type NavLink = {
   label: BiText;
 };
 
-// ── New section data ────────────────────────────────────────────────
-
 export type ToolGroup = {
   id: string;
   title: BiText;
   tools: string[];
-};
-
-export type ProcessStep = {
-  id: string;
-  index: string;
-  title: BiText;
-  body: BiText;
-};
-
-export type CurrentlyItem = {
-  id: string;
-  icon: 'music' | 'book' | 'wrench' | 'pin';
-  label: BiText;
-  value: string;
-};
-
-export type ArchiveRow = {
-  id: string;
-  year: string;
-  name: string;
-  language: string;
-  stars: number;
-  url: string;
-  description: BiText;
-};
-
-export type Polaroid = {
-  id: string;
-  place: string;
-  date: string;
-  caption: BiText;
-  gradient: [string, string];
-  glyph: string;
-  rotate: number;
-};
-
-export type ShowcaseFeature = {
-  id: string;
-  text: BiText;
-};
-
-export type Showcase = {
-  id: string;
-  side: 'left' | 'right' | 'vertical';
-  eyebrow: BiText;
-  title: string;
-  blurb: BiText;
-  features: ShowcaseFeature[];
-  badge: BiText;
-  badgeUrl?: string;
-  gradient: [string, string];
-  glyph: string;
-  mockup: 'tablet' | 'laptop' | 'monitor';
-  accent: string;
 };

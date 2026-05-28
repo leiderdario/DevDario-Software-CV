@@ -8,9 +8,9 @@ import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
 import { Counter } from '@/components/ui/Counter';
 
 const STATS = [
-  { target: 5, suffix: '+', key: 'about.stats.years' },
-  { target: 12, suffix: '+', key: 'about.stats.projects' },
-  { target: 1872, suffix: '', key: 'about.stats.team' },
+  { target: 3, suffix: '+', key: 'about.stats.years' },
+  { target: 5, suffix: '', key: 'about.stats.projects' },
+  { target: 7, suffix: '', key: 'about.stats.team' },
 ];
 
 export function About() {
@@ -21,10 +21,10 @@ export function About() {
       id="about"
       data-section="about"
       data-bg="#131313"
-      style={{ '--stack-index': 2, zIndex: 3 } as CSSProperties}
+      style={{ '--stack-index': 1, zIndex: 2 } as CSSProperties}
       className="sticky-stack bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
-      <div className="container-x grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+      <div className="container-x grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
         <div className="md:col-span-5">
           <MaskReveal>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[var(--color-border)]">

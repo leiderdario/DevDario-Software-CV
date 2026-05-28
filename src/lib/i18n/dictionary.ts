@@ -4,10 +4,14 @@ export const DICT: Dict = {
   // Nav
   'nav.work': { es: 'Proyectos', en: 'Work' },
   'nav.about': { es: 'Sobre mí', en: 'About' },
+  'nav.experience': { es: 'Experiencia', en: 'Experience' },
   'nav.services': { es: 'Servicios', en: 'Services' },
   'nav.testimonials': { es: 'Testimonios', en: 'Testimonials' },
+  'nav.achievements': { es: 'Logros', en: 'Achievements' },
+  'nav.certifications': { es: 'Certificaciones', en: 'Certifications' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   'nav.cta': { es: 'Hablemos', en: "Let's talk" },
+  'nav.cv': { es: 'Descargar CV', en: 'Download CV' },
 
   // Preloader
   'preloader.loading': { es: 'Cargando', en: 'Loading' },
@@ -18,27 +22,13 @@ export const DICT: Dict = {
   'hero.title.line2': { es: '& desarrollador de IA', en: '& AI developer' },
   'hero.title.line3': { es: 'construyendo para', en: 'building for' },
   'hero.lead': {
-    es: 'Desde Cartagena. Becario internacional en Zaragoza. Líder técnico de un equipo de 5 en Mahates. Backend, IA, sistemas que envían valor real.',
-    en: 'Based in Cartagena. International fellow in Zaragoza. Tech lead for a team of 5 in Mahates. Backend, AI, and systems that ship measurable value.',
+    es: 'Ingeniero de software de la Universidad de Cartagena. Becario internacional en Zaragoza por ponencia y proyecto de IA avanzada. Full-stack, agentes con LangChain/LangGraph, automatización y backend.',
+    en: 'Software engineer from Universidad de Cartagena. International fellow in Zaragoza for an advanced AI talk and project. Full-stack, LangChain/LangGraph agents, automation and backend.',
   },
   'hero.scroll': { es: 'Desliza para ver', en: 'Scroll to explore' },
-
-  // Currently
-  'currently.eyebrow': { es: 'Ahora mismo', en: 'Right now' },
-
-  // Manifesto
-  'manifesto.eyebrow': { es: 'Cómo pienso', en: 'How I think' },
-  'manifesto.line1': {
-    es: 'No escribo código. Diseño sistemas que aprenden, escalan y deciden.',
-    en: "I don't write code. I architect systems that learn, scale, and decide.",
-  },
-  'manifesto.line2': {
-    es: 'Cada línea es una apuesta — por la velocidad, por el usuario, por el impacto que rinde números.',
-    en: 'Every line is a bet — on speed, on the user, on outcomes that survive the audit.',
-  },
-  'manifesto.line3': {
-    es: 'Si la idea es ambiciosa, el stack es la última de mis preocupaciones.',
-    en: 'If the idea is bold, the stack is the last thing I worry about.',
+  'hero.photoAlt': {
+    es: 'Foto profesional de Leider Darío Bolaño',
+    en: 'Professional photo of Leider Darío Bolaño',
   },
 
   // Services
@@ -71,9 +61,6 @@ export const DICT: Dict = {
   'work.view': { es: 'Ver proyecto', en: 'View project' },
   'work.all': { es: 'Más en GitHub', en: 'More on GitHub' },
 
-  // Showcase
-  'showcase.highlights': { es: 'Lo que hace', en: 'What it does' },
-
   // Statement
   'statement.title': {
     es: 'Construyo software que aprende, escala y rinde números — no demos bonitos.',
@@ -81,34 +68,28 @@ export const DICT: Dict = {
   },
   'statement.cta': { es: 'Trabajemos juntos', en: 'Work together' },
 
-  // Marquee
-  'marquee.tags': {
-    es: 'Python · TypeScript · Next.js · FastAPI · Postgres · GSAP · LangGraph · React · Node · Tailwind · Vercel',
-    en: 'Python · TypeScript · Next.js · FastAPI · Postgres · GSAP · LangGraph · React · Node · Tailwind · Vercel',
-  },
-
   // About
   'about.eyebrow': { es: 'Sobre quién está detrás.', en: "Who's behind it." },
-  'about.title': { es: 'Cinco años, cuatro empresas, dos continentes.', en: 'Five years, four companies, two continents.' },
+  'about.title': { es: 'Tres años, cinco empresas, dos continentes.', en: 'Three years, five companies, two continents.' },
   'about.bio': {
-    es: 'Soy ingeniero de software de la Universidad de Cartagena y becario internacional en Zaragoza. Trabajo en backend, IA y datos. He liderado equipos, dado soporte bajo presión y llevado investigación a producción. Me interesan los proyectos que la gente usa de verdad: gobierno, EdTech, fintech, plataformas.',
-    en: 'I am a software engineer from Universidad de Cartagena and an international fellow in Zaragoza. I work in backend, AI, and data. I have led teams, run support under pressure, and pushed research into production. I care about projects people actually use: government, EdTech, fintech, platforms.',
+    es: 'Ingeniero de software formado en la Universidad de Cartagena, becario internacional en la Universidad de Zaragoza por ponencia y proyecto de IA avanzada. Combino habilidades técnicas (Python, Ruby, C++, IA, bases de datos, LangChain y LangGraph) con experiencia en soporte técnico, desarrollo back-end y gestión de equipos. Enfoque multidisciplinario y compromiso con el aprendizaje continuo.',
+    en: 'Software engineer trained at Universidad de Cartagena, international fellow at Universidad de Zaragoza for an advanced AI talk and project. I combine technical skills (Python, Ruby, C++, AI, databases, LangChain and LangGraph) with experience in technical support, back-end development and team management. Multidisciplinary approach and a commitment to continuous learning.',
   },
-  'about.stats.years': { es: 'años en producción', en: 'years shipping' },
-  'about.stats.projects': { es: 'proyectos entregados', en: 'projects delivered' },
-  'about.stats.team': { es: 'tazas de café (y subiendo)', en: 'cups of coffee (and counting)' },
+  'about.stats.years': { es: 'años de experiencia', en: 'years of experience' },
+  'about.stats.projects': { es: 'roles profesionales', en: 'professional roles' },
+  'about.stats.team': { es: 'certificaciones técnicas', en: 'technical certifications' },
 
   // Experience
-  'experience.eyebrow': { es: 'Dónde he sumado.', en: "Where I've delivered." },
+  'experience.eyebrow': { es: 'Experiencia profesional', en: 'Professional experience' },
   'experience.title': { es: 'Experiencia.', en: 'Experience.' },
 
-  // Behind the Scenes
-  'behindscenes.eyebrow': { es: 'Fuera de pantalla', en: 'Off the screen' },
-  'behindscenes.title': { es: 'Detrás de cámaras.', en: 'Behind the scenes.' },
-  'behindscenes.lead': {
-    es: 'Las salas, los viajes y las noches que no caben en un repositorio.',
-    en: "The rooms, the trips, and the late nights that don't fit in a repo.",
-  },
+  // Achievements
+  'achievements.eyebrow': { es: 'Logros destacados', en: 'Featured achievements' },
+  'achievements.title': { es: 'Logros & premios.', en: 'Awards & milestones.' },
+
+  // Certifications
+  'certifications.eyebrow': { es: 'Cursos y certificaciones', en: 'Courses & certifications' },
+  'certifications.title': { es: 'Certificaciones.', en: 'Certifications.' },
 
   // Education
   'education.eyebrow': { es: 'Formación', en: 'Education' },
@@ -120,14 +101,6 @@ export const DICT: Dict = {
   'testimonials.play': { es: 'Reproducir', en: 'Play' },
   'testimonials.pause': { es: 'Pausa', en: 'Pause' },
 
-  // Press
-  'press.eyebrow': { es: 'Lo que ha quedado registrado.', en: 'On the record.' },
-  'press.title': { es: 'Prensa & logros.', en: 'Press & milestones.' },
-
-  // Process
-  'process.eyebrow': { es: 'Cómo trabajo', en: 'How I work' },
-  'process.title': { es: 'El proceso.', en: 'The process.' },
-
   // Studio
   'studio.eyebrow': { es: 'Estudio', en: 'Studio' },
   'studio.title': { es: '3DIGIT-ALL FACTORY', en: '3DIGIT-ALL FACTORY' },
@@ -137,41 +110,62 @@ export const DICT: Dict = {
   },
   'studio.cta': { es: 'Visitar el estudio', en: 'Visit the studio' },
 
-  // Archives
-  'archives.eyebrow': { es: 'Explora más', en: 'Explore more' },
-  'archives.title': { es: 'Archivos.', en: 'Archives.' },
-  'archives.lead': {
-    es: 'Todo lo público, en una lista. Pasa el cursor para mirar de cerca.',
-    en: 'Everything public, in one list. Hover to look closer.',
+  // Contact form
+  'contactForm.eyebrow': { es: 'Hablemos', en: "Let's talk" },
+  'contactForm.title': {
+    es: 'Cuéntame sobre tu proyecto.',
+    en: 'Tell me about your project.',
   },
-  'archives.col.year': { es: 'Año', en: 'Year' },
-  'archives.col.project': { es: 'Proyecto', en: 'Project' },
-  'archives.col.lang': { es: 'Lenguaje', en: 'Language' },
-  'archives.col.stars': { es: 'Stars', en: 'Stars' },
-
-  // Contact
-  'contact.eyebrow': { es: 'Siguiente paso', en: 'Next step' },
-  'contact.title.line1': { es: 'Tengamos una', en: "Let's have a" },
-  'contact.title.line2': { es: 'conversación seria.', en: 'real conversation.' },
-  'contact.subline': {
-    es: 'Una llamada de 20 minutos. Sin pitch. Sin pretensiones.',
-    en: 'A 20-minute call. No pitch. No fluff.',
+  'contactForm.subline': {
+    es: 'Respondo en 24 horas hábiles. Si prefieres email directo: leiderddario@gmail.com',
+    en: 'I reply within 24 business hours. Prefer direct email: leiderddario@gmail.com',
   },
-  'contact.copy': { es: 'Copiar email', en: 'Copy email' },
-  'contact.copied': { es: 'Copiado', en: 'Copied' },
-  'contact.write': { es: 'Escríbeme', en: 'Email me' },
+  'contactForm.field.name': { es: 'Nombre', en: 'Name' },
+  'contactForm.field.email': { es: 'Correo', en: 'Email' },
+  'contactForm.field.company': { es: 'Empresa (opcional)', en: 'Company (optional)' },
+  'contactForm.field.budget': { es: 'Presupuesto (opcional)', en: 'Budget (optional)' },
+  'contactForm.field.message': { es: 'Cuéntame qué necesitas', en: 'Tell me what you need' },
+  'contactForm.submit': { es: 'Enviar mensaje', en: 'Send message' },
+  'contactForm.submitting': { es: 'Enviando…', en: 'Sending…' },
+  'contactForm.success': {
+    es: 'Recibido. Te respondo en 24h.',
+    en: 'Got it. I will reply in 24h.',
+  },
+  'contactForm.error': {
+    es: 'Algo falló. Intenta de nuevo o escríbeme directo.',
+    en: 'Something failed. Try again or email me directly.',
+  },
+  'contactForm.error.name': {
+    es: 'Dime cómo te llamas.',
+    en: 'I need your name.',
+  },
+  'contactForm.error.email': {
+    es: 'Necesito un correo válido para responderte.',
+    en: 'I need a valid email to reply.',
+  },
+  'contactForm.error.message': {
+    es: 'Cuéntame un poco más (mínimo 20 caracteres).',
+    en: 'Tell me a bit more (at least 20 characters).',
+  },
+  'contactForm.downloadCv': { es: 'Descargar CV', en: 'Download CV' },
 
   // Footer
   'footer.cta.line1': { es: 'Hablemos', en: "Let's talk" },
   'footer.cta.line2': { es: 'en serio.', en: 'for real.' },
+  'footer.cta.headline': {
+    es: 'Construyamos algo que valga la pena recordar.',
+    en: "Let's build something worth remembering.",
+  },
+  'footer.cta.button': { es: 'Agenda una llamada', en: 'Book a call' },
+  'footer.cta.cv': { es: 'Descargar CV en PDF', en: 'Download CV (PDF)' },
   'footer.column.contact': { es: 'Contacto', en: 'Contact' },
   'footer.column.social': { es: 'Redes', en: 'Socials' },
   'footer.column.sitemap': { es: 'Sitemap', en: 'Sitemap' },
   'footer.tagline': {
-    es: 'Cartagena · Construido con código y mucho café',
-    en: 'Cartagena · Built with code and a lot of coffee',
+    es: 'Medellín / Cartagena · Construido con código y mucho café',
+    en: 'Medellín / Cartagena · Built with code and a lot of coffee',
   },
-  'footer.role': { es: 'Ingeniero de Software & Desarrollador de IA', en: 'Software Engineer & AI Developer' },
+  'footer.role': { es: 'Full Stack Developer · AI Engineer · Software Engineer', en: 'Full Stack Developer · AI Engineer · Software Engineer' },
 
   // Cursor
   'cursor.open': { es: 'Abrir', en: 'Open' },

@@ -1,66 +1,117 @@
 'use client';
 
 import { useRef } from 'react';
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Calendar,
+  Download,
+} from 'lucide-react';
 import { useTranslation } from '@/lib/i18n';
-import { MagneticLink } from '@/components/ui/MagneticLink';
-import { FOOTER_COLUMNS } from '@/lib/data/nav';
+import { CONTACT_EMAIL, CONTACT_PHONE, CV_PDF_HREF } from '@/lib/data/nav';
 import { useMagnetic } from '@/components/effects/useMagnetic';
+
+const SOCIALS = [
+  { id: 'github', label: 'GitHub', href: 'https://github.com/leiderdario', Icon: Github },
+  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: Linkedin },
+  { id: 'instagram', label: 'Instagram', href: '#', Icon: Instagram },
+  { id: 'x', label: 'X', href: '#', Icon: Twitter },
+];
 
 export function Footer() {
   const { lang, t } = useTranslation();
-  const emailRef = useRef<HTMLAnchorElement | null>(null);
-  useMagnetic(emailRef, 0.4);
+  const ctaRef = useRef<HTMLAnchorElement | null>(null);
+  useMagnetic(ctaRef, 0.35);
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)] pb-10 pt-24">
-      <div className="container-x">
-        <h2 className="mb-12 max-w-[18ch] font-serif text-[clamp(56px,10vw,180px)] leading-[0.92] tracking-[-0.02em]">
-          {t('footer.cta.line1')} <span className="text-[var(--color-accent)]">{t('footer.cta.line2')}</span>
+    <footer
+      data-section="footer"
+      data-bg="#ece9e2"
+      className="bg-[#ece9e2] text-[#161512]"
+    >
+      <div className="container-x flex flex-col items-center pb-12 pt-24 text-center md:pt-32">
+        <h2 className="mx-auto max-w-[22ch] font-medium tracking-[-0.03em] text-[clamp(48px,8vw,128px)] leading-[0.95]">
+          {t('footer.cta.headline')}
         </h2>
 
         <a
-          ref={emailRef}
-          href="mailto:lbolanoa1@unicartagena.edu.co"
-          data-cursor="copy"
-          className="magnetic mb-16 inline-block break-words font-serif text-[clamp(28px,5vw,72px)] leading-[1.05] underline decoration-[var(--color-border)] underline-offset-8 transition-colors hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)]"
+          ref={ctaRef}
+          href={`mailto:${CONTACT_EMAIL}`}
+          data-cursor="open"
+          className="magnetic mt-12 inline-flex items-center gap-3 rounded-full bg-[#161512] px-8 py-4 text-sm font-medium text-[#ece9e2] transition-colors hover:bg-[var(--color-accent)] md:text-base"
         >
-          lbolanoa1@unicartagena.edu.co
+          <Calendar size={16} />
+          {t('footer.cta.button')}
         </a>
 
-        <div className="grid grid-cols-1 gap-12 border-t border-[var(--color-border)] pt-12 md:grid-cols-3">
-          {FOOTER_COLUMNS.map((col) => (
-            <div key={col.id} className="flex flex-col gap-3">
-              <h3 className="mb-2 text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
-                {col.title[lang]}
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {col.items.map((item, i) => {
-                  const label =
-                    typeof item.label === 'string' ? item.label : item.label[lang];
-                  return (
-                    <li key={i}>
-                      <MagneticLink
-                        href={item.href}
-                        strength={0.2}
-                        className="text-sm text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]"
-                        data-cursor="open"
-                      >
-                        {label}
-                      </MagneticLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+        <a
+          href={CV_PDF_HREF}
+          download
+          data-cursor="open"
+          className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-[#5b574e] transition-colors hover:text-[#161512]"
+        >
+          <Download size={12} />
+          {t('footer.cta.cv')}
+        </a>
+      </div>
+
+      <div className="container-x grid grid-cols-1 items-center gap-8 border-t border-black/10 py-8 md:grid-cols-3">
+        <ul className="flex items-center justify-center gap-5 md:justify-start">
+          {SOCIALS.map(({ id, label, href, Icon }) => (
+            <li key={id}>
+              <a
+                href={href}
+                aria-label={label}
+                data-cursor="open"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-[#5b574e] transition-colors hover:bg-[#161512] hover:text-[#ece9e2]"
+              >
+                <Icon size={16} />
+              </a>
+            </li>
           ))}
+        </ul>
+
+        <div className="flex flex-col items-center gap-1 text-center">
+          <span className="font-serif text-lg leading-none tracking-tight">
+            Leider Dario
+          </span>
+          <span className="text-xs uppercase tracking-[0.18em] text-[#5b574e]">
+            {t('footer.role')}
+          </span>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-[var(--color-border)] pt-6 text-xs text-[var(--color-text-dim)] md:flex-row md:items-center md:justify-between">
-          <span>
-            © {new Date().getFullYear()} Leider Dario Bolaño Agámez · {t('footer.role')}
-          </span>
-          <span>{t('footer.tagline')}</span>
-        </div>
+        <ul className="flex items-center justify-center gap-6 text-sm md:justify-end">
+          <li>
+            <a href="#work" data-cursor="open" className="transition-colors hover:text-[var(--color-accent)]">
+              {lang === 'es' ? 'Proyectos' : 'Work'}
+            </a>
+          </li>
+          <li>
+            <a href="#about" data-cursor="open" className="transition-colors hover:text-[var(--color-accent)]">
+              {lang === 'es' ? 'Sobre mí' : 'About'}
+            </a>
+          </li>
+          <li>
+            <a href="#contact" data-cursor="open" className="transition-colors hover:text-[var(--color-accent)]">
+              {lang === 'es' ? 'Contacto' : 'Contact'}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="container-x grid grid-cols-1 gap-3 border-t border-black/10 py-6 text-xs text-[#5b574e] md:grid-cols-3 md:items-center">
+        <span className="md:text-left">
+          © {new Date().getFullYear()} Leider Dario Bolaño Agámez ·{' '}
+          <a href="/sitemap.xml" className="underline-offset-2 hover:underline">Site Map</a>
+        </span>
+        <span className="text-center">Medellín · Cartagena, Colombia</span>
+        <span className="md:text-right">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-[#161512]">{CONTACT_EMAIL}</a>
+          {' · '}
+          <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} className="transition-colors hover:text-[#161512]">{CONTACT_PHONE}</a>
+        </span>
       </div>
     </footer>
   );

@@ -22,10 +22,10 @@ export function MaskReveal({ className, delay = 0, start = 'top 85%', children }
       if (reduced) return;
       const el = ref.current;
       if (!el) return;
-      gsap.set(el, { clipPath: 'inset(0 0 100% 0)', y: 60 });
-      gsap.to(el, {
-        clipPath: 'inset(0 0 0% 0)',
-        y: 0,
+      gsap.from(el, {
+        clipPath: 'inset(0 0 100% 0)',
+        y: 60,
+        immediateRender: false,
         duration: 1.3,
         ease: 'expo.out',
         delay,

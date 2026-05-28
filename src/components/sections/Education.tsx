@@ -13,7 +13,7 @@ export function Education() {
       data-bg="#131313"
       className="bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
-      <div className="container-x grid grid-cols-1 gap-12 md:grid-cols-12">
+      <div className="container-x grid grid-cols-1 gap-8 md:grid-cols-12">
         <div className="md:col-span-4">
           <p className="eyebrow mb-3">{t('education.eyebrow')}</p>
           <MaskReveal>

@@ -48,10 +48,10 @@ export function SplitTextReveal({
       });
       const targets =
         type === 'lines' ? split.lines : type === 'words' ? split.words : split.chars;
-      gsap.set(targets, { yPercent: 110, opacity: 0 });
-      const tween = gsap.to(targets, {
-        yPercent: 0,
-        opacity: 1,
+      const tween = gsap.from(targets, {
+        yPercent: 110,
+        opacity: 0,
+        immediateRender: false,
         duration: 1.0,
         ease: 'expo-out',
         stagger,

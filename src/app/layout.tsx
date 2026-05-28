@@ -33,13 +33,30 @@ export const metadata: Metadata = {
     template: '%s · Leider Dario',
   },
   description:
-    'Software engineer and AI developer from Colombia. Building serious, beautiful software for government, fintech, EdTech and platforms.',
-  keywords: ['Leider Dario', 'Software Engineer', 'AI', 'Next.js', 'Colombia', '3DIGIT-ALL FACTORY'],
+    'Full Stack Developer, AI Engineer & Software Engineer based in Colombia. Python, TypeScript, LangChain, LangGraph, Next.js, Docker. International fellow at Universidad de Zaragoza.',
+  keywords: [
+    'Leider Dario',
+    'Leider Dario Bolaño Agámez',
+    'Software Engineer',
+    'Full Stack Developer',
+    'AI Engineer',
+    'AI Developer',
+    'LangChain',
+    'LangGraph',
+    'Python',
+    'TypeScript',
+    'Next.js',
+    'React',
+    'Node.js',
+    'Colombia',
+    'Cartagena',
+    'Medellín',
+  ],
   authors: [{ name: 'Leider Dario Bolaño Agámez' }],
   openGraph: {
-    title: 'Leider Dario Bolaño Agámez — Software Engineer & AI Developer',
+    title: 'Leider Dario Bolaño Agámez — Full Stack Developer & AI Engineer',
     description:
-      'Software engineer and AI developer from Colombia. Building serious, beautiful software for government, fintech, EdTech and platforms.',
+      'Full Stack Developer, AI Engineer & Software Engineer based in Colombia. Python, TypeScript, LangChain, LangGraph, Next.js, Docker. International fellow at Universidad de Zaragoza.',
     type: 'website',
     locale: 'es_CO',
     alternateLocale: 'en_US',
@@ -47,7 +64,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Leider Dario Bolaño Agámez',
-    description: 'Software Engineer & AI Developer.',
+    description: 'Full Stack Developer · AI Engineer · Software Engineer.',
   },
   icons: {
     icon: '/favicon.ico',
