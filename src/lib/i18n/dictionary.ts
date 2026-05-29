@@ -60,6 +60,18 @@ export const DICT: Dict = {
   },
   'work.view': { es: 'Ver proyecto', en: 'View project' },
   'work.all': { es: 'Más en GitHub', en: 'More on GitHub' },
+  'work.private': { es: 'Privado · NDA', en: 'Private · NDA' },
+  'work.video': { es: 'Video en', en: 'Watch on' },
+  'work.badge.live': { es: 'Demo en vivo', en: 'Live demo' },
+  'work.badge.video': { es: 'Video', en: 'Video' },
+  'work.badge.source': { es: 'Código', en: 'Source' },
+  'work.badge.private': { es: 'NDA', en: 'NDA' },
+  'work.detail.back': { es: '← Volver al portafolio', en: '← Back to portfolio' },
+  'work.detail.watch': { es: 'Ver en YouTube', en: 'Watch on YouTube' },
+  'work.detail.stack': { es: 'Stack & herramientas', en: 'Stack & tools' },
+  'work.detail.tradeOff': { es: 'Decisión técnica clave', en: 'Key technical decision' },
+  'work.detail.story': { es: 'La historia', en: 'The story' },
+  'work.detail.more': { es: 'Ver más proyectos', en: 'See more projects' },
 
   // Statement
   'statement.title': {

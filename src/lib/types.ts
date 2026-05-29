@@ -13,7 +13,20 @@ export type Project = {
   year: string;
   description: BiText;
   image: string | null;
-  url: string;
+  /** External URL: demo, video, or repo. null when project is private/NDA. */
+  url: string | null;
+  /** Optional internal route to a detail page, e.g. '/work/alira'. Takes precedence over `url` on card click. */
+  detailHref?: string;
+  /** One concrete trade-off or lesson learned, shown inline on the card. */
+  tradeOff?: BiText;
+  /** Long-form story for the detail page. */
+  longDescription?: BiText;
+  /** YouTube video id (just the id, e.g. '0JQkCcUkMhk') for detail page embed. */
+  videoEmbed?: string;
+  /** Client name for case studies (e.g. 'NDA · Banca digital'). */
+  client?: string;
+  /** Explicit NDA flag — disables external link, shows "Private" badge. */
+  isPrivate?: boolean;
   featured: boolean;
   layout: ProjectLayout;
   placeholder?: { gradient: [string, string]; glyph: string };
