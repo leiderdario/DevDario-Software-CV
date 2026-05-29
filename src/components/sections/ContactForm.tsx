@@ -13,7 +13,7 @@ import { CONTACT_EMAIL, CV_PDF_HREF } from '@/lib/data/nav';
 import { cn } from '@/lib/cn';
 
 const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/REPLACE_ME';
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mnjrwljb';
 const IS_DEMO = FORMSPREE_ENDPOINT.includes('REPLACE_ME');
 
 const CURRENCIES = ['USD', 'EUR', 'COP'] as const;

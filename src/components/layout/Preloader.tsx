@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '@/components/effects/useReducedMotion';
 
-const STORAGE_KEY = 'leider.preloader.ts';
-const ONE_HOUR = 60 * 60 * 1000;
 const MIN_DISPLAY_MS = 1800;
 const MAX_WAIT_MS = 4800;
 const LIFT_MS = 1100;
@@ -23,17 +21,6 @@ export function Preloader() {
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    try {
-      const last = window.sessionStorage.getItem(STORAGE_KEY);
-      if (last && Date.now() - Number(last) < ONE_HOUR) {
-        setShow(false);
-        window.dispatchEvent(new CustomEvent('preloader:done'));
-        return;
-      }
-    } catch (e) {
-      void e;
-    }
-
     if (reduced) {
       setShow(false);
       window.dispatchEvent(new CustomEvent('preloader:done'));
@@ -74,11 +61,6 @@ export function Preloader() {
     const closeCurtain = () => {
       if (lifted) return;
       lifted = true;
-      try {
-        window.sessionStorage.setItem(STORAGE_KEY, String(Date.now()));
-      } catch (e) {
-        void e;
-      }
       setLifting(true);
       unmountTimer = window.setTimeout(() => {
         setShow(false);
