@@ -17,7 +17,7 @@ export function Education() {
         <div className="md:col-span-4">
           <p className="eyebrow mb-3">{t('education.eyebrow')}</p>
           <MaskReveal>
-            <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+            <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
               {t('education.title')}
             </h2>
           </MaskReveal>
@@ -27,10 +27,10 @@ export function Education() {
           {EDUCATION.map((edu) => (
             <li
               key={edu.id}
-              className="border-t border-[var(--color-border)] py-8 first:border-t-0"
+              className="border-t border-[var(--color-border)] py-5 first:border-t-0"
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
-                <h3 className="font-serif text-[clamp(20px,2.2vw,32px)] leading-tight">
+                <h3 className="font-serif text-[clamp(18px,1.8vw,26px)] leading-tight">
                   {edu.institution}
                 </h3>
                 <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-dim)]">

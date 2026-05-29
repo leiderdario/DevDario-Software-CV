@@ -42,7 +42,7 @@ export function Studio() {
       id="studio"
       data-section="studio"
       data-bg="#1a1410"
-      className="border-y border-[var(--color-border)] py-[var(--section-pad-y,120px)]"
+      className="relative border-y border-[var(--color-border)] bg-[#1a1410] py-[var(--section-pad-y,120px)]"
     >
       <style jsx global>{`
         .studio-fullscreen {
@@ -58,14 +58,14 @@ export function Studio() {
       <div className="container-x">
         <p className="eyebrow mb-3">{t('studio.eyebrow')}</p>
         <MaskReveal>
-          <h2 className="mb-8 font-serif text-[clamp(40px,7vw,120px)] leading-[1.0] tracking-[-0.02em]">
+          <h2 className="mb-6 font-serif text-[clamp(36px,5vw,72px)] leading-[1.0] tracking-[-0.02em]">
             {t('studio.title')}
           </h2>
         </MaskReveal>
 
         <div
           ref={cardRef}
-          className="relative grid grid-cols-1 gap-8 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-8 md:grid-cols-2 md:p-12"
+          className="relative grid grid-cols-1 gap-6 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-6 md:grid-cols-2 md:p-8"
         >
           <div
             aria-hidden
@@ -75,7 +75,7 @@ export function Studio() {
                 'radial-gradient(circle at 20% 30%, rgba(255,107,53,0.25), transparent 50%), radial-gradient(circle at 80% 70%, rgba(124,77,255,0.18), transparent 55%)',
             }}
           />
-          <p className="max-w-prose text-[18px] leading-[1.55] text-[var(--color-text)]">
+          <p className="max-w-prose text-[16px] leading-[1.55] text-[var(--color-text)]">
             {t('studio.lead')}
           </p>
           <div className="flex items-end justify-end">

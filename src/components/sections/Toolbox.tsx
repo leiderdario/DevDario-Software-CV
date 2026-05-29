@@ -51,16 +51,16 @@ export function Toolbox() {
       className="bg-[#0e0e0e] py-[var(--section-pad-y,120px)]"
     >
       <div className="container-x">
-        <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-12">
+        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="eyebrow mb-3">{t('toolbox.eyebrow')}</p>
             <MaskReveal>
-              <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+              <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
                 {t('toolbox.title')}
               </h2>
             </MaskReveal>
           </div>
-          <p className="text-[18px] leading-[1.5] text-[var(--color-text-dim)] md:col-span-5 md:col-start-8">
+          <p className="text-[16px] leading-[1.5] text-[var(--color-text-dim)] md:col-span-5 md:col-start-8">
             {t('toolbox.lead')}
           </p>
         </div>

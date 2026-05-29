@@ -20,7 +20,7 @@ export function Statement() {
           as="h2"
           type="lines"
           stagger={0.12}
-          className="max-w-[18ch] font-serif text-[clamp(40px,7vw,120px)] leading-[1.02] tracking-[-0.02em]"
+          className="max-w-[18ch] font-serif text-[clamp(36px,5vw,72px)] leading-[1.02] tracking-[-0.02em]"
         >
           {t('statement.title')}
         </SplitTextReveal>

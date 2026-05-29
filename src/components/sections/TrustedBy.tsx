@@ -9,9 +9,9 @@ function LogoCard({ name }: { name: string }) {
   return (
     <div
       data-trusted-card
-      className="flex h-28 w-[clamp(220px,22vw,320px)] shrink-0 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-alt)]/60 px-6 text-center transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-alt)] md:h-36"
+      className="flex h-16 w-[clamp(160px,16vw,220px)] shrink-0 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)]/60 px-5 text-center transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-alt)] md:h-20"
     >
-      <span className="font-serif text-[clamp(20px,1.8vw,28px)] leading-tight tracking-tight text-[var(--color-text)]">
+      <span className="font-serif text-[clamp(16px,1.4vw,22px)] leading-tight tracking-tight text-[var(--color-text)]">
         {name}
       </span>
     </div>
@@ -29,9 +29,9 @@ export function TrustedBy() {
       id="trusted"
       data-section="trusted"
       data-bg="#131313"
-      className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-20"
+      className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-12"
     >
-      <div className="container-x mb-12 flex items-end justify-between">
+      <div className="container-x mb-8 flex items-end justify-between">
         <div>
           <p className="eyebrow mb-3">{t('trusted.eyebrow')}</p>
           <MaskReveal>

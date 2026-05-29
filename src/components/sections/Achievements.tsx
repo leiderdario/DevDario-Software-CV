@@ -14,10 +14,10 @@ export function Achievements() {
       className="bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
       <div className="container-x">
-        <div className="mb-12">
+        <div className="mb-8">
           <p className="eyebrow mb-3">{t('achievements.eyebrow')}</p>
           <MaskReveal>
-            <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+            <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
               {t('achievements.title')}
             </h2>
           </MaskReveal>
@@ -27,7 +27,7 @@ export function Achievements() {
           {ACHIEVEMENTS.map((item) => (
             <li
               key={item.id}
-              className="grid grid-cols-12 items-baseline gap-4 border-t border-[var(--color-border)] py-8 transition-colors hover:text-[var(--color-accent)]"
+              className="grid grid-cols-12 items-baseline gap-4 border-t border-[var(--color-border)] py-5 transition-colors hover:text-[var(--color-accent)]"
               data-cursor="open"
             >
               <span className="col-span-2 font-mono text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
@@ -37,7 +37,7 @@ export function Achievements() {
                 <p className="mb-1 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
                   {item.label[lang]}
                 </p>
-                <h3 className="font-serif text-[clamp(20px,2.4vw,40px)] leading-tight">
+                <h3 className="font-serif text-[clamp(18px,1.8vw,28px)] leading-tight">
                   {item.title[lang]}
                 </h3>
               </div>

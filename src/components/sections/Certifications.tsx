@@ -17,7 +17,7 @@ export function Certifications() {
         <div className="md:col-span-4">
           <p className="eyebrow mb-3">{t('certifications.eyebrow')}</p>
           <MaskReveal>
-            <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+            <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
               {t('certifications.title')}
             </h2>
           </MaskReveal>
@@ -27,7 +27,7 @@ export function Certifications() {
           {CERTIFICATIONS.map((cert) => (
             <li
               key={cert.id}
-              className="grid grid-cols-1 gap-2 border-t border-[var(--color-border)] py-6 transition-colors hover:bg-white/[0.015] md:grid-cols-12 md:items-baseline md:gap-6"
+              className="grid grid-cols-1 gap-2 border-t border-[var(--color-border)] py-4 transition-colors hover:bg-white/[0.015] md:grid-cols-12 md:items-baseline md:gap-6"
             >
               <h3 className="font-serif text-[clamp(18px,1.6vw,24px)] leading-tight md:col-span-7">
                 {cert.title[lang]}

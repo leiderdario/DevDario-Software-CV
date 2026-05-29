@@ -53,7 +53,7 @@ export function Hero() {
       id="top"
       data-section="hero"
       data-bg="#131313"
-      className="relative isolate flex min-h-[88svh] items-end overflow-hidden pb-12 pt-32 md:pb-20 md:pt-40"
+      className="relative isolate flex min-h-[72svh] items-end overflow-hidden pb-10 pt-24 md:pb-14 md:pt-28"
     >
       <div className="container-x relative flex w-full flex-col gap-10">
         <p className="eyebrow">{t('hero.eyebrow')}</p>
@@ -74,7 +74,7 @@ export function Hero() {
           <div className="flex flex-col gap-8 lg:col-span-7">
             <h1
               key={`title-${revealKey}`}
-              className="font-medium leading-[0.95] tracking-[-0.03em] text-[clamp(40px,6vw,96px)]"
+              className="font-medium leading-[0.95] tracking-[-0.03em] text-[clamp(36px,5vw,72px)]"
             >
               <SplitTextReveal as="span" type="lines" stagger={0.1} className="block">
                 {t('hero.title.line1')}
@@ -113,7 +113,7 @@ export function Hero() {
               type="words"
               delay={0.55}
               stagger={0.02}
-              className="max-w-prose text-[clamp(16px,1.2vw,19px)] leading-[1.6] text-[var(--color-text-dim)]"
+              className="max-w-prose text-[clamp(15px,1.1vw,17px)] leading-[1.6] text-[var(--color-text-dim)]"
             >
               {t('hero.lead')}
             </SplitTextReveal>

@@ -60,16 +60,16 @@ export function Services() {
       data-bg="#0e0e0e"
       className="relative bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
-      <div className="container-x mb-16 grid grid-cols-1 gap-8 md:grid-cols-12">
+      <div className="container-x mb-10 grid grid-cols-1 gap-8 md:grid-cols-12">
         <div className="md:col-span-4">
           <p className="eyebrow mb-3">{t('services.eyebrow')}</p>
           <MaskReveal>
-            <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+            <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
               {t('services.title')}
             </h2>
           </MaskReveal>
         </div>
-        <p className="text-[var(--color-text-dim)] text-[18px] leading-[1.5] md:col-span-6 md:col-start-7">
+        <p className="text-[var(--color-text-dim)] text-[16px] leading-[1.5] md:col-span-6 md:col-start-7">
           {t('services.lead')}
         </p>
       </div>

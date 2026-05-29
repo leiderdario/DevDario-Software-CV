@@ -45,11 +45,11 @@ export function Testimonials() {
       className="bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
       <div className="container-x">
-        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-6 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="eyebrow mb-3">{t('testimonials.eyebrow')}</p>
             <MaskReveal>
-              <h2 className="font-medium tracking-tight text-[clamp(40px,6vw,96px)] leading-[1.0]">
+              <h2 className="font-medium tracking-tight text-[clamp(32px,4vw,64px)] leading-[1.0]">
                 {t('testimonials.title')}
               </h2>
             </MaskReveal>
