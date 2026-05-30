@@ -28,7 +28,7 @@ export const FOOTER_COLUMNS = [
     title: { es: 'Redes', en: 'Socials' },
     items: [
       { label: 'GitHub', href: 'https://github.com/leiderdario' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/leider-dario-bolaño-3d' },
       { label: { es: 'Descargar CV (PDF)', en: 'Download CV (PDF)' }, href: CV_PDF_HREF },
     ],
   },

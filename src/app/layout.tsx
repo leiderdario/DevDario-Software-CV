@@ -12,6 +12,8 @@ import { Footer } from '@/components/layout/Footer';
 import { SectionBgFader } from '@/components/effects/SectionBgFader';
 import { ScrollFX } from '@/components/effects/ScrollFX';
 import { PageTransition } from '@/components/effects/PageTransition';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { SITE_URL, SITE_DESCRIPTION, personJsonLd, websiteJsonLd } from '@/lib/data/seo';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,13 +29,15 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leiderdario.com'),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Leider Dario Bolaño Agámez — Software Engineer & AI Developer',
     template: '%s · Leider Dario',
   },
-  description:
-    'Full Stack Developer, AI Engineer & Software Engineer based in Colombia. Python, TypeScript, LangChain, LangGraph, Next.js, Docker. International fellow at Universidad de Zaragoza.',
+  description: SITE_DESCRIPTION,
   keywords: [
     'Leider Dario',
     'Leider Dario Bolaño Agámez',
@@ -52,22 +56,51 @@ export const metadata: Metadata = {
     'Cartagena',
     'Medellín',
   ],
-  authors: [{ name: 'Leider Dario Bolaño Agámez' }],
+  authors: [{ name: 'Leider Dario Bolaño Agámez', url: SITE_URL }],
+  creator: 'Leider Dario Bolaño Agámez',
+  publisher: 'Leider Dario Bolaño Agámez',
+  category: 'technology',
   openGraph: {
     title: 'Leider Dario Bolaño Agámez — Full Stack Developer & AI Engineer',
-    description:
-      'Full Stack Developer, AI Engineer & Software Engineer based in Colombia. Python, TypeScript, LangChain, LangGraph, Next.js, Docker. International fellow at Universidad de Zaragoza.',
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: 'Leider Dario Bolaño Agámez',
     type: 'website',
     locale: 'es_CO',
     alternateLocale: 'en_US',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Leider Dario Bolaño Agámez — Software Engineer & AI Developer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Leider Dario Bolaño Agámez',
     description: 'Full Stack Developer · AI Engineer · Software Engineer.',
+    images: ['/opengraph-image'],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 
@@ -82,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${inter.variable} ${instrument.variable}`}>
       <body className="grain bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
+        <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
         <I18nProvider>
           <GsapProvider>
             <LenisProvider>
