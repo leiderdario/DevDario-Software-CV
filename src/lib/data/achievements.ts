@@ -40,7 +40,10 @@ export const ACHIEVEMENTS: Achievement[] = [
       es: 'Feria de Innovación y Tecnología — Universidad de Cartagena',
       en: 'Innovation & Technology Fair — Universidad de Cartagena',
     },
-    meta: { es: 'Bolívar · 2025', en: 'Bolívar · 2025' },
+    meta: {
+      es: 'Por el proyecto UNIA-Emotion · Bolívar · Mayo 2026',
+      en: 'For the UNIA-Emotion project · Bolívar · May 2026',
+    },
   },
   {
     id: 'segundo-mompox',

@@ -160,6 +160,17 @@ export function ProjectCard({ project }: Props) {
           {badgeIcon}
           {badgeLabel}
         </span>
+
+        {project.metric && (
+          <span className="absolute right-3 top-3 inline-flex items-baseline gap-1.5 rounded-full border border-[var(--color-accent)]/40 bg-black/40 px-3 py-1 backdrop-blur-sm">
+            <span className="font-serif text-[15px] leading-none text-[var(--color-accent)]">
+              {project.metric.value}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--color-text-dim)]">
+              {project.metric.label[lang]}
+            </span>
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-5 pb-4 leading-snug">

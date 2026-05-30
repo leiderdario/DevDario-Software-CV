@@ -21,6 +21,8 @@ export type Project = {
   tradeOff?: BiText;
   /** Long-form story for the detail page. */
   longDescription?: BiText;
+  /** One concrete number per project (latency, users…). Rendered as a small badge on the card. */
+  metric?: { value: string; label: BiText };
   /** YouTube video id (just the id, e.g. '0JQkCcUkMhk') for detail page embed. */
   videoEmbed?: string;
   /** Client name for case studies (e.g. 'NDA · Banca digital'). */
