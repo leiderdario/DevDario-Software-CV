@@ -1,7 +1,7 @@
 import type { Project } from '../types';
 
-/** Canonical production domain. Used by metadataBase, sitemap, robots and JSON-LD. */
-export const SITE_URL = 'https://leiderdario.online';
+/** Canonical production domain (www — matches Vercel's served domain; apex 307s here). */
+export const SITE_URL = 'https://www.leiderdario.online';
 export const SITE_NAME = 'Leider Darío Bolaño Agámez';
 export const SITE_TITLE = 'Leider Dario Bolaño Agámez — Software Engineer & AI Developer';
 export const SITE_DESCRIPTION =
