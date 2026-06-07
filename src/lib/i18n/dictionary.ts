@@ -191,5 +191,3 @@ export const DICT: Dict = {
   'lang.toggle': { es: 'EN', en: 'ES' },
   'lang.aria': { es: 'Cambiar idioma a inglés', en: 'Switch language to Spanish' },
 };
-{ es: 'Cambiar idioma a inglés', en: 'Switch language to Spanish' },
-};

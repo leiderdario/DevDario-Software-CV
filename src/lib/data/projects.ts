@@ -255,6 +255,3 @@ export const PROJECTS: Project[] = [
     placeholder: { gradient: ['#00bcd4', '#022831'], glyph: 'K' },
   },
 ];
-lder: { gradient: ['#00bcd4', '#022831'], glyph: 'K' },
-  },
-];
