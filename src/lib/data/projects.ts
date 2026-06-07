@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'becalia',
     index: '02',
-    title: 'Becalia',
+    title: 'BecaliaCo',
     tags: ['SaaS', 'AI Agent', 'TypeScript', 'MCP', 'Payments', 'Next.js'],
     category: { es: 'SaaS · IA', en: 'SaaS · AI' },
     year: '2026',
