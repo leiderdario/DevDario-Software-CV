@@ -72,6 +72,8 @@ export const DICT: Dict = {
   'work.detail.tradeOff': { es: 'Decisión técnica clave', en: 'Key technical decision' },
   'work.detail.story': { es: 'La historia', en: 'The story' },
   'work.detail.more': { es: 'Ver más proyectos', en: 'See more projects' },
+  'work.detail.doc': { es: 'Documentación técnica (PDF)', en: 'Technical docs (PDF)' },
+  'work.detail.slides': { es: 'Ver pitch deck', en: 'View pitch deck' },
 
   // Statement
   'statement.title': {
@@ -188,4 +190,6 @@ export const DICT: Dict = {
   // Lang
   'lang.toggle': { es: 'EN', en: 'ES' },
   'lang.aria': { es: 'Cambiar idioma a inglés', en: 'Switch language to Spanish' },
+};
+{ es: 'Cambiar idioma a inglés', en: 'Switch language to Spanish' },
 };

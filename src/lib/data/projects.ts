@@ -30,8 +30,37 @@ export const PROJECTS: Project[] = [
     placeholder: { gradient: ['#ff6b35', '#7a1f00'], glyph: 'A' },
   },
   {
-    id: 'mahates',
+    id: 'becalia',
     index: '02',
+    title: 'Becalia',
+    tags: ['SaaS', 'AI Agent', 'TypeScript', 'MCP', 'Payments', 'Next.js'],
+    category: { es: 'SaaS · IA', en: 'SaaS · AI' },
+    year: '2026',
+    description: {
+      es: 'Plataforma SaaS de descubrimiento de becas con agente de IA. Pipeline de 4 etapas, 3 fuentes MCP, pagos en producción con Mercado Pago y usuarios reales facturando. Mi producto más completo hasta la fecha.',
+      en: 'SaaS scholarship discovery platform with an AI agent. 4-stage pipeline, 3 MCP sources, production payments via Mercado Pago, and real paying users. My most complete product to date.',
+    },
+    tradeOff: {
+      es: 'Pipeline determinista por etapas en vez de agente autónomo. Coste de tokens predecible, cada etapa testeable por separado.',
+      en: 'Deterministic staged pipeline instead of autonomous agent. Predictable token cost, each stage independently testable.',
+    },
+    longDescription: {
+      es: 'Becalia es una plataforma SaaS que automatiza el descubrimiento de becas. El estudiante sube su CV y un agente de IA orquesta un pipeline determinista de 4 etapas — parseo del CV con Haiku, búsqueda web en paralelo mediante 3 fuentes MCP (Tavily, Exa, DuckDuckGo), extracción de páginas candidatas y ranking semántico con Sonnet — para devolver becas reales, rankeadas por afinidad y traducidas al idioma del estudiante, en menos de 90 segundos. La arquitectura desacopla frontend (Next.js 15 en Vercel) de backend (Express/Node 20 en Railway), con PostgreSQL/Prisma, autenticación con argon2 y JWT rotatorio, y monetización freemium (Free + Pro + créditos) operada en COP con Mercado Pago. Cada búsqueda mide y persiste su consumo real de tokens por etapa, garantizando facturación auditable al 100%. Incluye hero 3D scroll-driven con estilo Liquid Glass, i18n ES/EN, accesibilidad AA, y un diseño de seguridad en profundidad donde cero claves llegan al frontend. Es el primer producto propio que factura mensualmente con usuarios reales.',
+      en: 'Becalia is a SaaS platform that automates scholarship discovery. The student uploads their CV and an AI agent orchestrates a deterministic 4-stage pipeline — CV parsing with Haiku, parallel web search via 3 MCP sources (Tavily, Exa, DuckDuckGo), candidate page extraction, and semantic ranking with Sonnet — to return real scholarships ranked by affinity and translated into the student\'s language, in under 90 seconds. The architecture decouples frontend (Next.js 15 on Vercel) from backend (Express/Node 20 on Railway), with PostgreSQL/Prisma, argon2 + rotating JWT auth, and freemium monetization (Free + Pro + credits) operated in COP via Mercado Pago. Every search measures and persists real token consumption per stage, ensuring 100% auditable billing. It features a 3D scroll-driven hero with Liquid Glass style, ES/EN i18n, AA accessibility, and defense-in-depth security where zero API keys reach the frontend. It is the first self-owned product generating monthly revenue from real users.',
+    },
+    metric: { value: '≤90s', label: { es: 'búsqueda p90', en: 'search p90' } },
+    image: '/assets/portfolio/becalia.png',
+    url: 'https://becaliaco.com',
+    detailHref: '/work/becalia',
+    docPdf: '/docs/Becalia-Documentacion-Tecnica.pdf',
+    slidesUrl: 'https://dune-tundra-375.faces.site/4yhwthxxdioe',
+    featured: true,
+    layout: 'featured-right',
+    placeholder: { gradient: ['#7c3aed', '#0F172A'], glyph: 'B' },
+  },
+  {
+    id: 'mahates',
+    index: '03',
     title: 'Plataforma Turística Mahates',
     tags: ['Full-Stack', 'TypeScript', 'Government', 'Tourism'],
     category: { es: 'Gobierno', en: 'Government' },
@@ -58,7 +87,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '3digitall',
-    index: '03',
+    index: '04',
     title: '3DIGIT-ALL FACTORY',
     tags: ['Studio', 'Co-Founder', 'Industry', 'Gaming'],
     category: { es: 'Estudio', en: 'Studio' },
@@ -80,7 +109,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'unia-emotion',
-    index: '04',
+    index: '05',
     title: 'UNIA-Emotion',
     tags: ['LLM', 'Streamlit', 'ElevenLabs', 'TypeScript', 'AI', 'Research'],
     category: { es: 'IA Conversacional', en: 'Conversational AI' },
@@ -107,7 +136,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'anti-fraud',
-    index: '05',
+    index: '06',
     title: 'Anti-Fraud Detection Pipeline',
     tags: ['Python', 'ML', 'Fintech', 'Banking'],
     category: { es: 'Banca / NDA', en: 'Banking / NDA' },
@@ -136,7 +165,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'smartassets',
-    index: '06',
+    index: '07',
     title: 'SmartAssets — Demo Platform',
     tags: ['Full-Stack', 'TypeScript', 'B2B', 'Fintech'],
     category: { es: 'Plataforma B2B', en: 'B2B Platform' },
@@ -157,7 +186,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'lingua-viva',
-    index: '07',
+    index: '08',
     title: 'Lingua Viva',
     tags: ['Mobile', 'EdTech', 'TypeScript', 'AI'],
     category: { es: 'EdTech', en: 'EdTech' },
@@ -179,7 +208,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'edualert',
-    index: '08',
+    index: '09',
     title: 'EduAlert',
     tags: ['TypeScript', 'EdTech', 'Analytics', 'Dashboard'],
     category: { es: 'EdTech', en: 'EdTech' },
@@ -206,7 +235,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'kmeans-pipeline',
-    index: '09',
+    index: '10',
     title: 'K-Means Clustering Pipeline',
     tags: ['Python', 'ML', 'Data Science'],
     category: { es: 'Datos', en: 'Data' },
@@ -224,5 +253,8 @@ export const PROJECTS: Project[] = [
     featured: false,
     layout: 'compact',
     placeholder: { gradient: ['#00bcd4', '#022831'], glyph: 'K' },
+  },
+];
+lder: { gradient: ['#00bcd4', '#022831'], glyph: 'K' },
   },
 ];

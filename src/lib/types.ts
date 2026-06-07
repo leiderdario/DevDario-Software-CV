@@ -29,6 +29,10 @@ export type Project = {
   client?: string;
   /** Explicit NDA flag — disables external link, shows "Private" badge. */
   isPrivate?: boolean;
+  /** Path to a downloadable PDF document (e.g. technical docs). */
+  docPdf?: string;
+  /** URL to an external slide deck / pitch presentation. */
+  slidesUrl?: string;
   featured: boolean;
   layout: ProjectLayout;
   placeholder?: { gradient: [string, string]; glyph: string };
