@@ -86,8 +86,8 @@ export const DICT: Dict = {
   'about.eyebrow': { es: 'Sobre quién está detrás.', en: "Who's behind it." },
   'about.title': { es: 'Tres años, cinco empresas, dos continentes.', en: 'Three years, five companies, two continents.' },
   'about.bio': {
-    es: 'Ingeniero de software formado en la Universidad de Cartagena, becario internacional en la Universidad de Zaragoza por ponencia y proyecto de IA avanzada. Combino habilidades técnicas (Python, Ruby, C++, IA, bases de datos, LangChain y LangGraph) con experiencia en soporte técnico, desarrollo back-end y gestión de equipos. Enfoque multidisciplinario y compromiso con el aprendizaje continuo.',
-    en: 'Software engineer trained at Universidad de Cartagena, international fellow at Universidad de Zaragoza for an advanced AI talk and project. I combine technical skills (Python, Ruby, C++, AI, databases, LangChain and LangGraph) with experience in technical support, back-end development and team management. Multidisciplinary approach and a commitment to continuous learning.',
+    es: 'Ingeniero de software formado en la Universidad de Cartagena, becario internacional en la Universidad de Zaragoza por ponencia y proyecto de IA avanzada. Combino habilidades técnicas (Python, Ruby, C++, IA, bases de datos, LangChain y LangGraph) con experiencia en desarrollo back-end, gestión de equipos y ciberseguridad ofensiva sobre Kali Linux y Parrot OS. Enfoque multidisciplinario y compromiso con el aprendizaje continuo.',
+    en: 'Software engineer trained at Universidad de Cartagena, international fellow at Universidad de Zaragoza for an advanced AI talk and project. I combine technical skills (Python, Ruby, C++, AI, databases, LangChain and LangGraph) with experience in back-end development, team management and offensive cybersecurity on Kali Linux and Parrot OS. Multidisciplinary approach and a commitment to continuous learning.',
   },
   'about.stats.years': { es: 'años de experiencia', en: 'years of experience' },
   'about.stats.projects': { es: 'roles profesionales', en: 'professional roles' },

@@ -37,8 +37,8 @@ export const PROJECTS: Project[] = [
     category: { es: 'Ciberseguridad', en: 'Cybersecurity' },
     year: '2026',
     description: {
-      es: 'Workbench de red teaming ético asistido por IA sobre Kali Linux. Orquesta una IA agéntica con modelos sin censura envuelta en 6 capas de seguridad para el operador y aprobación humana por cada acción.',
-      en: 'Ethical red teaming workbench powered by AI on Kali Linux. Orchestrates an agentic AI with uncensored models wrapped in 6 security layers for the operator, with human approval per action.',
+      es: 'Workbench de red teaming ético asistido por IA sobre Kali Linux. Orquesta una IA agéntica con modelos sin censura envuelta en 6 capas de seguridad y aprobación humana por cada acción. Probado y usado por peritos profesionales de la Universidad de Cartagena.',
+      en: 'Ethical red teaming workbench powered by AI on Kali Linux. Orchestrates an agentic AI with uncensored models wrapped in 6 security layers and human approval per action. Tested and used by professional forensic experts at Universidad de Cartagena.',
     },
     tradeOff: {
       es: 'Modelos sin censura para no bloquear trabajo legítimo, pero contenidos por 6 capas de defensa en profundidad + HITL. El operador nunca pierde el control.',

@@ -8,7 +8,7 @@ import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
 import { Counter } from '@/components/ui/Counter';
 
 const STATS = [
-  { target: 3, suffix: '+', key: 'about.stats.years' },
+  { target: 5, suffix: '+', key: 'about.stats.years' },
   { target: 5, suffix: '', key: 'about.stats.projects' },
   { target: 7, suffix: '', key: 'about.stats.team' },
 ];
