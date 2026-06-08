@@ -30,8 +30,35 @@ export const PROJECTS: Project[] = [
     placeholder: { gradient: ['#ff6b35', '#7a1f00'], glyph: 'A' },
   },
   {
-    id: 'becalia',
+    id: 'kamuli',
     index: '02',
+    title: 'Kamuli — Auditoría de IA Ofensiva',
+    tags: ['Offensive Security', 'AI Agents', 'LLM Security', 'Kali Linux', 'Docker', 'Python'],
+    category: { es: 'Ciberseguridad', en: 'Cybersecurity' },
+    year: '2026',
+    description: {
+      es: 'Workbench de red teaming ético asistido por IA sobre Kali Linux. Orquesta una IA agéntica con modelos sin censura envuelta en 6 capas de seguridad para el operador y aprobación humana por cada acción.',
+      en: 'Ethical red teaming workbench powered by AI on Kali Linux. Orchestrates an agentic AI with uncensored models wrapped in 6 security layers for the operator, with human approval per action.',
+    },
+    tradeOff: {
+      es: 'Modelos sin censura para no bloquear trabajo legítimo, pero contenidos por 6 capas de defensa en profundidad + HITL. El operador nunca pierde el control.',
+      en: 'Uncensored models so legitimate work is never blocked, but contained by 6 defense-in-depth layers + HITL. The operator never loses control.',
+    },
+    longDescription: {
+      es: 'Kamuli resuelve una tensión real del red teaming asistido por IA: las IAs comerciales rechazan trabajo de seguridad ofensiva legítimo, pero una IA "sin frenos" ejecutando comandos es peligrosa para su propio operador. Kamuli usa modelos uncensored — locales vía Ollama (dolphin-llama3, qwen2.5 en GPU RTX 3050) y nube vía OpenRouter (Venice uncensored) — que no bloquean el trabajo autorizado, y los envuelve en una defensa en profundidad de 6 capas: sandbox (bubblewrap), guardrails anti prompt-injection (ProtectAI), secretos cifrados (SOPS+age), anti-malware (Trivy/gitleaks), firewall de egreso default-DROP (OpenSnitch) y detección runtime (Falco). Cada acción requiere aprobación humana (HITL), con doble confirmación para acciones destructivas. El enforcement de scope bloquea cualquier objetivo fuera del ROE antes siquiera de pedir aprobación. Además incluye un plano B: auditoría de seguridad de los propios LLMs con Garak + DeepTeam (jailbreak, prompt-injection, fuga de datos), con perfiles de riesgo medidos. El arranque es falla-cerrado: si falta una capa de seguridad, el sistema no arranca. Kill-switch instantáneo corta ejecución y egreso en un comando.',
+      en: 'Kamuli solves a real tension in AI-assisted red teaming: commercial AIs refuse legitimate offensive security work, but an "unrestrained" AI executing commands is dangerous to its own operator. Kamuli uses uncensored models — local via Ollama (dolphin-llama3, qwen2.5 on RTX 3050 GPU) and cloud via OpenRouter (Venice uncensored) — that never block authorized work, wrapped in 6 defense-in-depth layers: sandbox (bubblewrap), anti prompt-injection guardrails (ProtectAI), encrypted secrets (SOPS+age), anti-malware (Trivy/gitleaks), default-DROP egress firewall (OpenSnitch), and runtime detection (Falco). Every action requires human approval (HITL), with double confirmation for destructive actions. Scope enforcement blocks any target outside the ROE before even asking for approval. It also includes a Plan B: security auditing of the LLMs themselves with Garak + DeepTeam (jailbreak, prompt-injection, data leakage), with measured risk profiles. Startup is fail-closed: if any security layer is missing, the system refuses to start. An instant kill-switch cuts execution and egress in one command.',
+    },
+    metric: { value: '6', label: { es: 'capas de seguridad', en: 'security layers' } },
+    image: '/assets/portfolio/kamuli.jpg',
+    url: 'https://github.com/leiderdario/kamuli-auditoria',
+    detailHref: '/work/kamuli',
+    featured: true,
+    layout: 'featured-left',
+    placeholder: { gradient: ['#2563eb', '#0a1628'], glyph: 'K' },
+  },
+  {
+    id: 'becalia',
+    index: '03',
     title: 'BecaliaCo',
     tags: ['SaaS', 'AI Agent', 'TypeScript', 'MCP', 'Payments', 'Next.js'],
     category: { es: 'SaaS · IA', en: 'SaaS · AI' },
@@ -60,7 +87,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'mahates',
-    index: '03',
+    index: '04',
     title: 'Plataforma Turística Mahates',
     tags: ['Full-Stack', 'TypeScript', 'Government', 'Tourism'],
     category: { es: 'Gobierno', en: 'Government' },
@@ -87,7 +114,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '3digitall',
-    index: '04',
+    index: '05',
     title: '3DIGIT-ALL FACTORY',
     tags: ['Studio', 'Co-Founder', 'Industry', 'Gaming'],
     category: { es: 'Estudio', en: 'Studio' },
@@ -109,7 +136,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'unia-emotion',
-    index: '05',
+    index: '06',
     title: 'UNIA-Emotion',
     tags: ['LLM', 'Streamlit', 'ElevenLabs', 'TypeScript', 'AI', 'Research'],
     category: { es: 'IA Conversacional', en: 'Conversational AI' },
@@ -136,7 +163,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'anti-fraud',
-    index: '06',
+    index: '07',
     title: 'Anti-Fraud Detection Pipeline',
     tags: ['Python', 'ML', 'Fintech', 'Banking'],
     category: { es: 'Banca / NDA', en: 'Banking / NDA' },
@@ -165,7 +192,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'smartassets',
-    index: '07',
+    index: '08',
     title: 'SmartAssets — Demo Platform',
     tags: ['Full-Stack', 'TypeScript', 'B2B', 'Fintech'],
     category: { es: 'Plataforma B2B', en: 'B2B Platform' },
@@ -186,7 +213,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'lingua-viva',
-    index: '08',
+    index: '09',
     title: 'Lingua Viva',
     tags: ['Mobile', 'EdTech', 'TypeScript', 'AI'],
     category: { es: 'EdTech', en: 'EdTech' },
@@ -208,7 +235,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'edualert',
-    index: '09',
+    index: '10',
     title: 'EduAlert',
     tags: ['TypeScript', 'EdTech', 'Analytics', 'Dashboard'],
     category: { es: 'EdTech', en: 'EdTech' },
@@ -235,7 +262,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'kmeans-pipeline',
-    index: '10',
+    index: '11',
     title: 'K-Means Clustering Pipeline',
     tags: ['Python', 'ML', 'Data Science'],
     category: { es: 'Datos', en: 'Data' },
