@@ -12,6 +12,8 @@ import { Footer } from '@/components/layout/Footer';
 import { SectionBgFader } from '@/components/effects/SectionBgFader';
 import { ScrollFX } from '@/components/effects/ScrollFX';
 import { PageTransition } from '@/components/effects/PageTransition';
+import { ChatBot } from '@/components/ui/ChatBot';
+import { TerminalModal } from '@/components/ui/TerminalModal';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_URL, SITE_DESCRIPTION, personJsonLd, websiteJsonLd } from '@/lib/data/seo';
 
@@ -127,6 +129,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <SectionBgFader />
               <ScrollFX />
               <PageTransition />
+              <ChatBot />
+              <TerminalModal />
             </LenisProvider>
           </GsapProvider>
         </I18nProvider>

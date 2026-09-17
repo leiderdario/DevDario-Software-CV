@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useTranslation } from '@/lib/i18n';
 import { useReducedMotion } from '@/components/effects/useReducedMotion';
 import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
+import { HeroPhotoReveal } from '@/components/ui/HeroPhotoReveal';
 
 const AUDIENCES_ES = ['startups', 'el gobierno', 'EdTech', 'fintech', 'innovadores en IA', 'plataformas SaaS', 'industrias'];
 const AUDIENCES_EN = ['startups', 'government', 'EdTech', 'fintech', 'AI innovators', 'SaaS platforms', 'industries'];
@@ -60,15 +61,14 @@ export function Hero() {
 
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <Image
-              src="/assets/profile.jpg"
-              alt={t('hero.photoAlt')}
-              width={896}
-              height={1152}
-              priority
-              sizes="(min-width:1024px) 45vw, 100vw"
-              className="aspect-[4/5] w-full rounded-2xl object-cover object-center"
-            />
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-2xl">
+              <HeroPhotoReveal
+                colorSrc="/assets/perfilcolor.png"
+                bwSrc="/assets/perfilBW.jpg"
+                alt={t('hero.photoAlt')}
+                priority
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-8 lg:col-span-7">

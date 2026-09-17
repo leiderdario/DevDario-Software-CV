@@ -21,8 +21,7 @@ export function About() {
       id="about"
       data-section="about"
       data-bg="#131313"
-      style={{ '--stack-index': 1, zIndex: 2 } as CSSProperties}
-      className="sticky-stack bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
+      className="relative bg-[var(--color-bg)] py-[var(--section-pad-y,120px)]"
     >
       <div className="container-x grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
         <div className="md:col-span-4">

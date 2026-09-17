@@ -11,6 +11,7 @@ import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
 import { MaskReveal } from '@/components/ui/MaskReveal';
 import { CONTACT_EMAIL, CV_PDF_HREF } from '@/lib/data/nav';
 import { cn } from '@/lib/cn';
+import { playSuccessSound } from '@/lib/sound';
 
 const FORMSPREE_ENDPOINT =
   process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mnjrwljb';
@@ -98,6 +99,7 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('formspree error');
+      playSuccessSound();
       fadeOutForm();
       setTimeout(() => {
         setStatus('success');

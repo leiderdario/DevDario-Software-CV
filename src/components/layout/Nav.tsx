@@ -6,6 +6,8 @@ import { gsap } from 'gsap';
 import { NAV_LINKS, CV_PDF_HREF, CONTACT_EMAIL } from '@/lib/data/nav';
 import { useTranslation } from '@/lib/i18n';
 import { LangToggle } from '@/components/ui/LangToggle';
+import { SoundToggle } from '@/components/ui/SoundToggle';
+import { playClickSound } from '@/lib/sound';
 import { cn } from '@/lib/cn';
 import { Download, X } from 'lucide-react';
 
@@ -123,11 +125,13 @@ export function Nav() {
             <span className={cn(solid ? 'inline' : 'hidden')}>/LD</span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <SoundToggle />
             <LangToggle />
             <a
               href={CV_PDF_HREF}
               download
+              onClick={() => playClickSound()}
               className="hidden items-center gap-1.5 rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:inline-flex"
               data-cursor="open"
             >
@@ -138,7 +142,10 @@ export function Nav() {
               type="button"
               aria-label={lang === 'es' ? 'Abrir menú' : 'Open menu'}
               aria-expanded={open}
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                playClickSound();
+                setOpen(true);
+              }}
               className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-medium uppercase tracking-wider text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
               data-cursor="open"
             >

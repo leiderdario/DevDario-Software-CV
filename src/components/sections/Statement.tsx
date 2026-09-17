@@ -13,8 +13,7 @@ export function Statement() {
       id="statement"
       data-section="statement"
       data-bg="#1a1410"
-      style={{ '--stack-index': 0, zIndex: 1 } as CSSProperties}
-      className="sticky-stack border-y border-[var(--color-border)] bg-[#1a1410] py-[var(--section-pad-y,96px)]"
+      className="relative border-y border-[var(--color-border)] bg-[#1a1410] py-[var(--section-pad-y,120px)]"
     >
       <div className="container-x flex flex-col items-start gap-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 w-full">
