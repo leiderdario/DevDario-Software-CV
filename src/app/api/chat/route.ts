@@ -59,14 +59,18 @@ PROYECTOS DESTACADOS:
 5. Mahates: Portal turístico municipal de alta concurrencia y arquitectura modular.
 6. Lingua Viva: Aplicación de aprendizaje adaptativo de idiomas con IA (ganadora de simposio nacional).
 
-ESTILO Y FORMATO DE TUS RESPUESTAS:
-- Te llamas Darío. Sé amable, carismático, conciso y técnicamente riguroso.
-- NUNCA uses Markdown roto, ni dejes guiones huérfanos sin texto (como '- \n **Correo:**').
-- Responde con párrafos limpios, legibles y agradables a la vista.
-- Si incluyes puntos o listas, usa viñetas completas y elegantes, por ejemplo:
-  - Correo: lbolanoa1@unicartagena.edu.co
-  - WhatsApp / Teléfono: +57 300 803 7847
-- Menciona siempre que pueden contactar a Leider por correo, WhatsApp o mediante el formulario interactivo de la web.
+ESTILO Y REGLAS CRÍTICAS (OBLIGATORIO):
+- Te llamas Darío. Sé amable, carismático, conciso y directo.
+- RESPUESTAS CORTAS Y RESUMIDAS: Máximo 2 o 3 oraciones breves. Sintetiza la información; nunca des respuestas largas ni copies listas enteras.
+- PROHIBIDO USAR MARKDOWN:
+  * NUNCA uses asteriscos (*) ni dobles asteriscos (**) bajo ningún concepto.
+  * NUNCA uses numerales (#, ##, ###).
+  * NUNCA uses guiones (-) ni viñetas.
+  * Escribe exclusivamente en texto limpio y fluido con saltos de línea sencillos.
+- CONTACTO: Si preguntan cómo contactar a Leider, indícalo de forma breve:
+  Correo: lbolanoa1@unicartagena.edu.co
+  WhatsApp: +57 300 803 7847
+  O a través del formulario de la web.
 `;
 
 export async function POST(req: Request) {
@@ -86,8 +90,8 @@ export async function POST(req: Request) {
           content: m.content,
         })),
       ],
-      temperature: 0.6,
-      max_tokens: 600,
+      temperature: 0.5,
+      max_tokens: 500,
     };
 
     let res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -122,7 +126,15 @@ export async function POST(req: Request) {
     }
 
     const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || 'No se pudo generar respuesta.';
+    const rawReply = data.choices?.[0]?.message?.content || 'No se pudo generar respuesta.';
+
+    // Extra safeguard: Strip any stray markdown symbols (asterisks, hashtags, dashes)
+    const reply = rawReply
+      .replace(/\*{1,3}/g, '')
+      .replace(/^#{1,6}\s*/gm, '')
+      .replace(/_{1,3}/g, '')
+      .replace(/^[-*•]\s+/gm, '')
+      .trim();
 
     return NextResponse.json({ reply });
   } catch (err: unknown) {
@@ -130,3 +142,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Error interno en el servidor' }, { status: 500 });
   }
 }
+

@@ -41,36 +41,36 @@ export function cycleSoundMode(): SoundMode {
 
 function getGainMultiplier(): number {
   if (currentMode === 'mute') return 0;
-  if (currentMode === 'soft') return 0.08;
-  return 0.35; // Boosted mode
+  if (currentMode === 'soft') return 0.06;
+  return 0.18; // Modo elevado
 }
 
-/** Soft tactile mechanical click for navigation */
+/** Soft tactile mechanical click for navigation and global clicks */
 export function playClickSound(force = false) {
   if (currentMode === 'mute' && !force) return;
   const ctx = getAudioContext();
   if (!ctx) return;
 
-  const gainVal = force ? (currentMode === 'boosted' ? 0.35 : 0.1) : getGainMultiplier();
+  const gainVal = force ? (currentMode === 'boosted' ? 0.18 : 0.08) : getGainMultiplier();
   if (gainVal <= 0) return;
 
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();
 
-  // Low subtle pop frequency
-  const baseFreq = currentMode === 'boosted' ? 880 : 440;
+  // Subtle clean switch-like click
+  const baseFreq = currentMode === 'boosted' ? 720 : 540;
   osc.type = 'sine';
   osc.frequency.setValueAtTime(baseFreq, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.035);
+  osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.028);
 
   gain.gain.setValueAtTime(gainVal, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.035);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.028);
 
   osc.connect(gain);
   gain.connect(ctx.destination);
 
   osc.start();
-  osc.stop(ctx.currentTime + 0.04);
+  osc.stop(ctx.currentTime + 0.03);
 }
 
 /** Melodic chime for successful actions (e.g. form submission) */

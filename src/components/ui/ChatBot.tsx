@@ -23,185 +23,108 @@ type Message = {
 
 const SUGGESTIONS = {
   es: [
-    '¿Cuáles son tus proyectos de IA más avanzados?',
-    'Cuéntame de tu experiencia en ciberseguridad y Kamuli.',
-    '¿Qué hiciste en la Universidad de Cartagena con Habitusutos?',
-    '¿Cómo podemos contactarte para una oportunidad?',
+    '¿Cuáles son tus proyectos de IA más destacados?',
+    'Cuéntame de tu experiencia con Kamuli.',
+    '¿Qué hiciste con Habitusutos?',
+    '¿Cómo puedo contactar a Leider?',
   ],
   en: [
-    'What are your most advanced AI projects?',
-    'Tell me about your cybersecurity experience with Kamuli.',
-    'What did you build at Universidad de Cartagena with Habitusutos?',
-    'How can I get in touch with you for a role?',
+    'What are your top AI projects?',
+    'Tell me about your experience with Kamuli.',
+    'What did you build with Habitusutos?',
+    'How can I contact Leider?',
   ],
 };
 
 /**
- * Parser for inline Markdown elements (Bold, Emails, WhatsApp, URLs, Code)
+ * Clean plain-text renderer with zero markdown symbols (no asterisks, no hashes, no raw dashes)
+ * and interactive pills for email/phone.
  */
-function renderInlineFormatting(text: string) {
-  // Regex tokens:
-  // 1. **bold**
-  // 2. Email: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b
-  // 3. WhatsApp / Phone: \+57\s*3\d{2}\s*\d{3}\s*\d{4}|\+\d{1,3}[\s-]?\d{3,}[\s-]?\d{4,}
-  // 4. [text](url)
-  // 5. `code`
-  // 6. Plain URL https?://...
-  const tokenRegex =
-    /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|\+57\s*3\d{2}[\s.-]?\d{3}[\s.-]?\d{4}|https?:\/\/[^\s)]+)/g;
-
-  const parts = text.split(tokenRegex);
-
-  return parts.map((part, i) => {
-    if (!part) return null;
-
-    // Bold **text**
-    if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
-      return (
-        <strong key={i} className="font-semibold text-white tracking-tight">
-          {part.slice(2, -2)}
-        </strong>
-      );
-    }
-
-    // Inline `code`
-    if (part.startsWith('`') && part.endsWith('`') && part.length >= 2) {
-      return (
-        <code
-          key={i}
-          className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[11px] text-amber-300 border border-white/5"
-        >
-          {part.slice(1, -1)}
-        </code>
-      );
-    }
-
-    // Markdown Link [title](url)
-    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-    if (linkMatch) {
-      const [, label, url] = linkMatch;
-      return (
-        <a
-          key={i}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 font-medium text-[var(--color-accent)] underline underline-offset-2 hover:opacity-80 transition-opacity"
-        >
-          <span>{label}</span>
-          <ExternalLink size={10} className="inline opacity-70" />
-        </a>
-      );
-    }
-
-    // Email
-    if (/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(part)) {
-      return (
-        <a
-          key={i}
-          href={`mailto:${part}`}
-          className="inline-flex items-center gap-1.5 rounded-md border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/15 px-2 py-0.5 text-[11px] font-mono text-[var(--color-accent)] hover:bg-[var(--color-accent)]/25 transition-colors align-middle shadow-xs"
-        >
-          <Mail size={11} />
-          <span>{part}</span>
-        </a>
-      );
-    }
-
-    // Phone / WhatsApp
-    if (/^\+57\s*3\d{2}[\s.-]?\d{3}[\s.-]?\d{4}$/.test(part) || part.includes('57 300 803 7847')) {
-      const cleanNum = part.replace(/\D/g, '');
-      return (
-        <a
-          key={i}
-          href={`https://wa.me/${cleanNum}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-md border border-emerald-500/35 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-mono text-emerald-400 hover:bg-emerald-500/25 transition-colors align-middle shadow-xs"
-        >
-          <MessageCircle size={11} />
-          <span>{part}</span>
-        </a>
-      );
-    }
-
-    // Raw URL
-    if (/^https?:\/\//.test(part)) {
-      return (
-        <a
-          key={i}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 font-mono text-[11px] text-[var(--color-accent)] underline underline-offset-2 hover:opacity-80 transition-opacity break-all"
-        >
-          <span>{part.replace(/^https?:\/\//, '')}</span>
-          <ExternalLink size={10} className="shrink-0 opacity-70" />
-        </a>
-      );
-    }
-
-    return <span key={i}>{part}</span>;
-  });
-}
-
-/**
- * Rich Message Formatter
- */
-function FormattedMessage({ content }: { content: string }) {
-  // Clean empty hanging bullets like `-\n` or isolated dashes
-  const cleanContent = content
-    .replace(/^[-*]\s*$/gm, '')
-    .replace(/\n{3,}/g, '\n\n')
+function CleanMessageContent({ content }: { content: string }) {
+  // Strip any accidental markdown symbols
+  const sanitized = content
+    .replace(/\*{1,3}/g, '') // remove all asterisks
+    .replace(/^#{1,6}\s*/gm, '') // remove markdown headings
+    .replace(/_{1,3}/g, '') // remove underscores
+    .replace(/^[-*•]\s+/gm, '') // remove markdown bullet syntax
     .trim();
 
-  // Split into paragraphs / lines
-  const lines = cleanContent.split('\n');
+  const lines = sanitized.split('\n');
 
-  // Group consecutive bullet points into lists
-  const renderedElements: React.ReactNode[] = [];
-  let currentList: string[] = [];
+  // Token regex to identify interactive email, whatsapp, and urls
+  const tokenRegex =
+    /([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|\+57\s*3\d{2}[\s.-]?\d{3}[\s.-]?\d{4}|https?:\/\/[^\s)]+)/g;
 
-  const flushList = () => {
-    if (currentList.length > 0) {
-      renderedElements.push(
-        <ul key={`list-${renderedElements.length}`} className="my-2 space-y-1.5 pl-1">
-          {currentList.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-zinc-200">
-              <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--color-accent)] shadow-[0_0_8px_var(--color-accent)]" />
-              <div className="flex-1 leading-snug">{renderInlineFormatting(item)}</div>
-            </li>
-          ))}
-        </ul>,
-      );
-      currentList = [];
-    }
-  };
+  return (
+    <div className="space-y-2 text-xs sm:text-[13px] text-zinc-100 leading-relaxed font-sans">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim();
+        if (!trimmed) return null;
 
-  for (let i = 0; i < lines.length; i++) {
-    const rawLine = lines[i].trim();
-    if (!rawLine) {
-      flushList();
-      continue;
-    }
+        const parts = trimmed.split(tokenRegex);
 
-    // Check if bullet line
-    const bulletMatch = rawLine.match(/^[-*•]\s+(.*)$/);
-    if (bulletMatch) {
-      currentList.push(bulletMatch[1]);
-    } else {
-      flushList();
-      renderedElements.push(
-        <p key={`p-${renderedElements.length}`} className="my-1 text-zinc-200 leading-relaxed">
-          {renderInlineFormatting(rawLine)}
-        </p>,
-      );
-    }
-  }
+        return (
+          <p key={idx} className="leading-relaxed">
+            {parts.map((part, pIdx) => {
+              if (!part) return null;
 
-  flushList();
+              // Email pill
+              if (/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(part)) {
+                return (
+                  <a
+                    key={pIdx}
+                    href={`mailto:${part}`}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/15 px-2 py-0.5 text-[11px] font-mono text-[var(--color-accent)] hover:bg-[var(--color-accent)]/25 transition-colors align-middle shadow-xs mx-0.5"
+                  >
+                    <Mail size={11} />
+                    <span>{part}</span>
+                  </a>
+                );
+              }
 
-  return <div className="space-y-1 text-xs sm:text-[13px]">{renderedElements}</div>;
+              // Phone / WhatsApp pill
+              if (
+                /^\+57\s*3\d{2}[\s.-]?\d{3}[\s.-]?\d{4}$/.test(part) ||
+                part.includes('57 300 803 7847')
+              ) {
+                const cleanNum = part.replace(/\D/g, '');
+                return (
+                  <a
+                    key={pIdx}
+                    href={`https://wa.me/${cleanNum}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-mono text-emerald-400 hover:bg-emerald-500/25 transition-colors align-middle shadow-xs mx-0.5"
+                  >
+                    <MessageCircle size={11} />
+                    <span>{part}</span>
+                  </a>
+                );
+              }
+
+              // Raw URL
+              if (/^https?:\/\//.test(part)) {
+                return (
+                  <a
+                    key={pIdx}
+                    href={part}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-mono text-[11px] text-[var(--color-accent)] underline underline-offset-2 hover:opacity-80 transition-opacity break-all mx-0.5"
+                  >
+                    <span>{part.replace(/^https?:\/\//, '')}</span>
+                    <ExternalLink size={10} className="shrink-0 opacity-70" />
+                  </a>
+                );
+              }
+
+              return <span key={pIdx}>{part}</span>;
+            })}
+          </p>
+        );
+      })}
+    </div>
+  );
 }
 
 export function ChatBot() {
@@ -212,8 +135,8 @@ export function ChatBot() {
 
   const initialGreeting = useMemo(() => {
     return lang === 'es'
-      ? '¡Hola! Soy **Darío**, el copiloto inteligente de **Leider Bolaño**. Conozco al detalle sus 6+ años de experiencia, proyectos de IA, roles y casos de éxito. ¿Qué te gustaría consultar o cómo podemos colaborar?'
-      : "Hello! I'm **Darío**, **Leider Bolaño**'s intelligent AI copilot. I know all about his 6+ years of experience, AI projects, roles, and achievements. What would you like to know or how can we collaborate?";
+      ? '¡Hola! Soy Darío, el copiloto inteligente de Leider Bolaño. Conozco su trayectoria, proyectos de IA y habilidades técnicas. ¿Qué te gustaría saber o consultar?'
+      : "Hello! I'm Darío, Leider Bolaño's intelligent copilot. I know his career, AI projects, and technical background. What would you like to know or discuss?";
   }, [lang]);
 
   const [messages, setMessages] = useState<Message[]>([
@@ -234,11 +157,11 @@ export function ChatBot() {
     });
   }, [initialGreeting]);
 
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const messagesContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isOpen && messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [messages, isOpen]);
 
@@ -281,8 +204,8 @@ export function ChatBot() {
           content:
             data.reply ||
             (lang === 'es'
-              ? 'Disculpa, no pude procesar esa respuesta en este momento.'
-              : 'Sorry, I could not process that response right now.'),
+              ? 'Disculpa, no pude procesar la respuesta en este momento.'
+              : 'Sorry, I could not process the response right now.'),
         },
       ]);
     } catch {
@@ -310,7 +233,7 @@ export function ChatBot() {
       {isOpen && (
         <div className="relative mb-3 flex h-[540px] w-[94vw] sm:w-[420px] flex-col overflow-hidden rounded-2xl border border-[var(--color-accent)]/30 bg-[#121212]/95 backdrop-blur-xl shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-5">
           {/* Top Header */}
-          <div className="flex items-center justify-between border-b border-[var(--color-border)]/80 bg-black/50 px-4 py-3">
+          <div className="flex items-center justify-between border-b border-[var(--color-border)]/80 bg-black/50 px-4 py-3 shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[#ff8f5a] text-white shadow-md">
                 <Bot size={20} />
@@ -343,8 +266,13 @@ export function ChatBot() {
             </button>
           </div>
 
-          {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3.5">
+          {/* Messages Area with VISIBLE CUSTOM SCROLLBAR */}
+          <div
+            ref={messagesContainerRef}
+            className="chat-custom-scroll flex-1 p-4 space-y-3.5 pr-2.5"
+            tabIndex={0}
+            aria-label="Historial de mensajes"
+          >
             {messages.map((m) => (
               <div
                 key={m.id}
@@ -377,7 +305,7 @@ export function ChatBot() {
                       {m.content}
                     </p>
                   ) : (
-                    <FormattedMessage content={m.content} />
+                    <CleanMessageContent content={m.content} />
                   )}
                 </div>
               </div>
@@ -389,16 +317,14 @@ export function ChatBot() {
                 <span>{lang === 'es' ? 'Darío está pensando…' : 'Darío is thinking…'}</span>
               </div>
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Suggestions pills if few messages */}
           {messages.length <= 2 && !loading && (
-            <div className="border-t border-white/5 bg-black/30 p-2.5">
+            <div className="border-t border-white/5 bg-black/30 p-2.5 shrink-0">
               <span className="mb-1.5 flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-zinc-400">
                 <Sparkles size={11} className="text-[var(--color-accent)]" />
-                {lang === 'es' ? 'Preguntas sugeridas:' : 'Suggested questions:'}
+                {lang === 'es' ? 'Preguntas rápidas:' : 'Quick questions:'}
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {suggestions.map((sug, i) => (
@@ -421,7 +347,7 @@ export function ChatBot() {
               e.preventDefault();
               sendMessage();
             }}
-            className="flex items-center gap-2 border-t border-white/10 bg-black/50 p-3"
+            className="flex items-center gap-2 border-t border-white/10 bg-black/50 p-3 shrink-0"
           >
             <input
               type="text"
