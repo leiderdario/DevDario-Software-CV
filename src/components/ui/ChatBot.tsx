@@ -159,11 +159,35 @@ export function ChatBot() {
 
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
 
+  // Auto-scroll on new message
   useEffect(() => {
     if (isOpen && messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
     }
   }, [messages, isOpen]);
+
+  // Enable mouse wheel scrolling directly over the chatbot (bypassing Lenis global hijack)
+  useEffect(() => {
+    const el = messagesContainerRef.current;
+    if (!el || !isOpen) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Prevent Lenis / main window from capturing the scroll
+      e.stopPropagation();
+      e.preventDefault();
+
+      // Smooth programmatic scroll with mouse wheel
+      el.scrollTop += e.deltaY;
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', handleWheel);
+    };
+  }, [isOpen]);
 
   const sendMessage = async (textToSend?: string) => {
     const query = textToSend || input;
@@ -231,7 +255,13 @@ export function ChatBot() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {/* Chat Window */}
       {isOpen && (
-        <div className="relative mb-3 flex h-[540px] w-[94vw] sm:w-[420px] flex-col overflow-hidden rounded-2xl border border-[var(--color-accent)]/30 bg-[#121212]/95 backdrop-blur-xl shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-5">
+        <div
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
+          data-lenis-prevent-touch="true"
+          onWheel={(e) => e.stopPropagation()}
+          className="relative mb-3 flex h-[540px] w-[94vw] sm:w-[420px] flex-col overflow-hidden rounded-2xl border border-[var(--color-accent)]/30 bg-[#121212]/95 backdrop-blur-xl shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
+        >
           {/* Top Header */}
           <div className="flex items-center justify-between border-b border-[var(--color-border)]/80 bg-black/50 px-4 py-3 shrink-0">
             <div className="flex items-center gap-3">
@@ -266,10 +296,14 @@ export function ChatBot() {
             </button>
           </div>
 
-          {/* Messages Area with VISIBLE CUSTOM SCROLLBAR */}
+          {/* Messages Area with VISIBLE CUSTOM SCROLLBAR & WHEEL SUPPORT */}
           <div
             ref={messagesContainerRef}
-            className="chat-custom-scroll flex-1 p-4 space-y-3.5 pr-2.5"
+            data-lenis-prevent="true"
+            data-lenis-prevent-wheel="true"
+            data-lenis-prevent-touch="true"
+            onWheel={(e) => e.stopPropagation()}
+            className="chat-custom-scroll flex-1 p-4 space-y-3.5 pr-2.5 touch-pan-y"
             tabIndex={0}
             aria-label="Historial de mensajes"
           >

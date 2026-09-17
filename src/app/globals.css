@@ -187,6 +187,7 @@
 /* Visible custom scrollbar for ChatBot */
 .chat-custom-scroll {
   overflow-y: scroll !important;
+  overscroll-behavior: contain;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 107, 53, 0.6) rgba(255, 255, 255, 0.05);
