@@ -10,7 +10,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CV_PDF_HREF = '/cv/Leider-Dario-CV.pdf';
-export const CONTACT_EMAIL = 'leiderddario@gmail.com';
+export const CONTACT_EMAIL = 'lbolanoa1@unicartagena.edu.co';
 export const CONTACT_PHONE = '+57 300 803 7847';
 
 export const FOOTER_COLUMNS = [

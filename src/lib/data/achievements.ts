@@ -55,4 +55,17 @@ export const ACHIEVEMENTS: Achievement[] = [
     },
     meta: { es: 'Mompox · 2025', en: 'Mompox · 2025' },
   },
+  {
+    id: 'segundo-magangue',
+    index: '05',
+    label: { es: '2.º Lugar', en: '2nd Place' },
+    title: {
+      es: 'IV Seminario de Investigación · Universidad de Cartagena',
+      en: 'Fourth Research Seminar · Universidad de Cartagena',
+    },
+    meta: {
+      es: 'Por el proyecto Lingua Viva · Simposio Magangué · Junio 2026',
+      en: 'For the Lingua Viva project · Magangué Symposium · June 2026',
+    },
+  },
 ];

@@ -2,6 +2,7 @@ import type { TrustedItem } from '../types';
 
 export const TRUSTED: TrustedItem[] = [
   { id: 'udec', name: 'Universidad de Cartagena' },
+  { id: 'makaia', name: 'MAKAIA' },
   { id: 'unizar', name: 'Universidad de Zaragoza' },
   { id: 'mahates', name: 'Alcaldía de Mahates' },
   { id: 'nequi', name: 'Nequi' },

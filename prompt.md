@@ -107,7 +107,7 @@ En `src/lib/i18n/dictionary.ts` quitar todas las `contact.*` actuales (`contact.
 ```ts
 'contactForm.eyebrow':   { es: 'Hablemos', en: "Let's talk" },
 'contactForm.title':     { es: 'Cuéntame sobre tu proyecto.', en: 'Tell me about your project.' },
-'contactForm.subline':   { es: 'Respondo en 24 horas hábiles. Si prefieres email directo: leiderddario@gmail.com', en: 'I reply within 24 business hours. Prefer direct email: leiderddario@gmail.com' },
+'contactForm.subline':   { es: 'Respondo en 24 horas hábiles. Si prefieres email directo: lbolanoa1@unicartagena.edu.co', en: 'I reply within 24 business hours. Prefer direct email: lbolanoa1@unicartagena.edu.co' },
 'contactForm.field.name':    { es: 'Nombre', en: 'Name' },
 'contactForm.field.email':   { es: 'Correo', en: 'Email' },
 'contactForm.field.company': { es: 'Empresa (opcional)', en: 'Company (optional)' },
@@ -135,7 +135,7 @@ En `src/lib/i18n/dictionary.ts` quitar todas las `contact.*` actuales (`contact.
 │ │                                   │ CORREO                                   ││
 │ │ Respondo en 24h hábiles.          │ ___________________________              ││
 │ │ Si prefieres email directo:       │                                          ││
-│ │ leiderddario@gmail.com            │ EMPRESA (opcional)                       ││
+│ │ lbolanoa1@unicartagena.edu.co            │ EMPRESA (opcional)                       ││
 │ │                                   │ ___________________________              ││
 │ │ [Cal.com pill button - opcional]  │                                          ││
 │ │                                   │ PRESUPUESTO (opcional)                   ││
@@ -187,7 +187,7 @@ Contexto: el usuario quiere usar `https://github.com/DigitalPlatDev/FreeDomain.g
 {
   "owner": {
     "username": "leiderdario",
-    "email": "leiderddario@gmail.com"
+    "email": "lbolanoa1@unicartagena.edu.co"
   },
   "record": {
     "CNAME": "cname.vercel-dns.com",
@@ -202,7 +202,7 @@ Pero **NO asumas** los valores — confírmalos contra el README actual.
    - Subdominio deseado: `leiderdario` (fallback: `leiderdariobolano`, `lcv`, `leider`, ver disponibilidad)
    - Tipo de dominio padre disponible (`.us.kg`, `.is-a.dev`, etc. — el repo soporta varios)
    - Target: `cname.vercel-dns.com` para Vercel (verificar en docs de Vercel actuales)
-   - Email del owner: `leiderddario@gmail.com`
+   - Email del owner: `lbolanoa1@unicartagena.edu.co`
 
 4. Output esperado del prompt:
    - **NO hacer fork/PR automáticamente**: yo (Claude Code) genero el archivo en `outputs/freedomain-leiderdario.json`

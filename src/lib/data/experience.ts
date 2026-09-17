@@ -2,6 +2,30 @@ import type { Experience } from '../types';
 
 export const EXPERIENCE: Experience[] = [
   {
+    id: 'udec-habitusutos',
+    company: 'Universidad de Cartagena — Sede Piedra de Bolívar',
+    role: {
+      es: 'Desarrollador Backend · Jornada parcial · Presencial',
+      en: 'Backend Developer · Part-time · On-site',
+    },
+    period: { es: '21 Sep 2026 — 21 Oct 2026', en: 'Sep 21, 2026 — Oct 21, 2026' },
+    location: 'Cartagena, Bolívar, Colombia',
+    bullets: {
+      es: [
+        'Desarrollo del backend y arquitectura para sistema de vigilancia que monitorea y analiza la postura de personas en entornos de oficina durante jornadas laborales sedentarias.',
+        'Implementación de modelo personal y modelo de oficina para el cálculo ergonómico y detección predictiva de desviaciones posturales.',
+        'Procesamiento y análisis en tiempo real con disparadores de notificaciones y alertas inmediatas para corrección postural al momento de ser detectada.',
+        'Plataforma desplegada y operativa en producción: https://habitusutos.vercel.app',
+      ],
+      en: [
+        'Backend development and architecture for a surveillance system monitoring and analyzing posture for office workers during sedentary workdays.',
+        'Implemented dual personal and office models for ergonomic computation and predictive posture deviation detection.',
+        'Real-time streaming analysis with instant notification triggers for corrective posture feedback upon detection.',
+        'Production platform deployed and live: https://habitusutos.vercel.app',
+      ],
+    },
+  },
+  {
     id: 'mahates',
     company: 'Alcaldía Municipal de Mahates',
     role: {

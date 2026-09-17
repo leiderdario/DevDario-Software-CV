@@ -33,6 +33,8 @@ export type Project = {
   docPdf?: string;
   /** URL to an external slide deck / pitch presentation. */
   slidesUrl?: string;
+  /** Direct link to GitHub repository. */
+  githubUrl?: string;
   featured: boolean;
   layout: ProjectLayout;
   placeholder?: { gradient: [string, string]; glyph: string };

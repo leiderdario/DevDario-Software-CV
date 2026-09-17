@@ -30,7 +30,7 @@ export function personJsonLd() {
     image: abs('/opengraph-image'),
     jobTitle: 'Software Engineer & AI Engineer',
     description: SITE_DESCRIPTION,
-    email: 'mailto:leiderddario@gmail.com',
+    email: 'mailto:lbolanoa1@unicartagena.edu.co',
     telephone: '+57 300 803 7847',
     address: {
       '@type': 'PostalAddress',

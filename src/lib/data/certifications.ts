@@ -60,4 +60,25 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'SENA',
     period: { es: 'May — Jun 2025', en: 'May — Jun 2025' },
   },
+  {
+    id: 'prog-paz',
+    title: { es: 'Programadores Para La Paz', en: 'Programmers for Peace' },
+    issuer: 'Ministerio de Igualdad y Equidad',
+    period: { es: 'May — Jul 2026', en: 'May — Jul 2026' },
+  },
+  {
+    id: 'delfin',
+    title: {
+      es: 'Estancia de Investigación Científica y Tecnológica',
+      en: 'Scientific & Technological Research Internship',
+    },
+    issuer: 'Programa Delfín',
+    period: { es: 'Jun — Jul 2026', en: 'Jun — Jul 2026' },
+  },
+  {
+    id: 'fenadeco-econometria',
+    title: { es: 'Econometría Espacial en Python', en: 'Spatial Econometrics in Python' },
+    issuer: 'Universidad FENADECO',
+    period: { es: 'Ago — Oct 2025', en: 'Aug — Oct 2025' },
+  },
 ];

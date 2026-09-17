@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Play, FileDown, Presentation } from 'lucide-react';
+import { ArrowUpRight, Play, FileDown, Presentation, Github } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n';
 import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
 import { MaskReveal } from '@/components/ui/MaskReveal';
@@ -184,40 +184,54 @@ export function ProjectDetail({ project }: { project: Project }) {
           >
             {t('work.detail.more')}
           </Link>
-          {project.slidesUrl && (
-            <a
-              href={project.slidesUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="external"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-            >
-              <Presentation size={14} />
-              {t('work.detail.slides')}
-            </a>
-          )}
-          {project.docPdf && (
-            <a
-              href={project.docPdf}
-              download
-              data-cursor="external"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)] px-6 py-3 text-sm font-medium text-[var(--color-accent)] transition-colors hover:bg-[var(--color-accent)] hover:text-white"
-            >
-              <FileDown size={14} />
-              {t('work.detail.doc')}
-            </a>
-          )}
-          {project.url && (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="external"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--color-text)] hover:text-[var(--color-bg)]"
-            >
-              {project.title} <ArrowUpRight size={14} />
-            </a>
-          )}
+          <div className="flex flex-wrap items-center gap-3">
+            {project.slidesUrl && (
+              <a
+                href={project.slidesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="external"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+              >
+                <Presentation size={14} />
+                {t('work.detail.slides')}
+              </a>
+            )}
+            {project.docPdf && (
+              <a
+                href={project.docPdf}
+                download
+                data-cursor="external"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)] px-6 py-3 text-sm font-medium text-[var(--color-accent)] transition-colors hover:bg-[var(--color-accent)] hover:text-white"
+              >
+                <FileDown size={14} />
+                {t('work.detail.doc')}
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="external"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+              >
+                <Github size={14} />
+                {lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}
+              </a>
+            )}
+            {project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="external"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--color-text)] hover:text-[var(--color-bg)]"
+              >
+                {lang === 'es' ? `Probar ${project.title}` : `Test ${project.title}`} <ArrowUpRight size={14} />
+              </a>
+            )}
+          </div>
         </div>
       </section>
     </article>

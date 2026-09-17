@@ -2,10 +2,24 @@ import type { Education } from '../types';
 
 export const EDUCATION: Education[] = [
   {
+    id: 'makaia-datos',
+    institution: 'MAKAIA',
+    program: {
+      es: 'Especialización en Análisis de Datos con Inteligencia Artificial',
+      en: 'Specialization in Data Analysis with Artificial Intelligence',
+    },
+    period: { es: 'Oct 2026 — Actualidad', en: 'Oct 2026 — Present' },
+    location: 'Medellín / Remoto, Colombia',
+    details: {
+      es: 'Formación intensiva de alto nivel en analítica avanzada, modelado y visualización de datos, inteligencia de negocios y aplicación de modelos de IA para decisiones estratégicas.',
+      en: 'Intensive high-level training in advanced analytics, data modeling and visualization, business intelligence, and AI models for strategic decision making.',
+    },
+  },
+  {
     id: 'udec',
     institution: 'Universidad de Cartagena',
     program: { es: 'Ingeniería de Software', en: 'Software Engineering' },
-    period: { es: 'Feb 2022 — May 2026', en: 'Feb 2022 — May 2026' },
+    period: { es: 'Feb 2022 — Oct 2026', en: 'Feb 2022 — Oct 2026' },
     location: 'Cartagena, Colombia',
     details: {
       es: 'Pregrado profesional. Enfoque en IA aplicada, sistemas distribuidos y liderazgo de proyectos.',

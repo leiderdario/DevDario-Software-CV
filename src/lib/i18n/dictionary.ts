@@ -84,7 +84,7 @@ export const DICT: Dict = {
 
   // About
   'about.eyebrow': { es: 'Sobre quién está detrás.', en: "Who's behind it." },
-  'about.title': { es: 'Cinco años, cinco empresas, dos continentes.', en: 'Five years, five companies, two continents.' },
+  'about.title': { es: 'Seis años, más de nueve empresas, dos continentes.', en: 'Six years, more than nine companies, two continents.' },
   'about.bio': {
     es: 'Ingeniero de software formado en la Universidad de Cartagena, becario internacional en la Universidad de Zaragoza por ponencia y proyecto de IA avanzada. Combino habilidades técnicas (Python, Ruby, C++, IA, bases de datos, LangChain y LangGraph) con experiencia en desarrollo back-end, gestión de equipos y ciberseguridad ofensiva sobre Kali Linux y Parrot OS. Enfoque multidisciplinario y compromiso con el aprendizaje continuo.',
     en: 'Software engineer trained at Universidad de Cartagena, international fellow at Universidad de Zaragoza for an advanced AI talk and project. I combine technical skills (Python, Ruby, C++, AI, databases, LangChain and LangGraph) with experience in back-end development, team management and offensive cybersecurity on Kali Linux and Parrot OS. Multidisciplinary approach and a commitment to continuous learning.',
@@ -131,8 +131,8 @@ export const DICT: Dict = {
     en: 'Tell me about your project.',
   },
   'contactForm.subline': {
-    es: 'Respondo en 24 horas hábiles. Si prefieres email directo: leiderddario@gmail.com',
-    en: 'I reply within 24 business hours. Prefer direct email: leiderddario@gmail.com',
+    es: 'Respondo en 24 horas hábiles. Si prefieres email directo: lbolanoa1@unicartagena.edu.co',
+    en: 'I reply within 24 business hours. Prefer direct email: lbolanoa1@unicartagena.edu.co',
   },
   'contactForm.field.name': { es: 'Nombre', en: 'Name' },
   'contactForm.field.email': { es: 'Correo', en: 'Email' },

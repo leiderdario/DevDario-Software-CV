@@ -9,9 +9,10 @@ function LogoCard({ name }: { name: string }) {
   return (
     <div
       data-trusted-card
-      className="flex h-16 w-[clamp(160px,16vw,220px)] shrink-0 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)]/60 px-5 text-center transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-alt)] md:h-20"
+      data-cursor="drag"
+      className="flex h-16 w-[clamp(160px,16vw,220px)] shrink-0 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)]/60 px-5 text-center transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-alt)] select-none md:h-20"
     >
-      <span className="font-serif text-[clamp(16px,1.4vw,22px)] leading-tight tracking-tight text-[var(--color-text)]">
+      <span className="font-serif text-[clamp(16px,1.4vw,22px)] leading-tight tracking-tight text-[var(--color-text)] select-none">
         {name}
       </span>
     </div>
@@ -42,13 +43,13 @@ export function TrustedBy() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5">
-        <Marquee speed={45} direction={-1} hoverPause className="py-1">
+      <div className="flex flex-col gap-5" data-cursor="drag">
+        <Marquee speed={45} direction={-1} hoverPause draggable className="py-1">
           {rowOne.map((it) => (
             <LogoCard key={`a-${it.id}`} name={it.name} />
           ))}
         </Marquee>
-        <Marquee speed={55} direction={1} hoverPause className="py-1">
+        <Marquee speed={55} direction={1} hoverPause draggable className="py-1">
           {rowTwo.map((it, i) => (
             <LogoCard key={`b-${it.id}-${i}`} name={it.name} />
           ))}
