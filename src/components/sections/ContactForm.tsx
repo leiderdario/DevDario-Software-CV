@@ -14,7 +14,7 @@ import { cn } from '@/lib/cn';
 import { playSuccessSound } from '@/lib/sound';
 
 const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mwlpkgdq';
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xdekkngp';
 const IS_DEMO = FORMSPREE_ENDPOINT.includes('REPLACE_ME');
 
 const CURRENCIES = ['USD', 'EUR', 'COP'] as const;
