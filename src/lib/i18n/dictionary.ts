@@ -131,8 +131,8 @@ export const DICT: Dict = {
     en: 'Tell me about your project.',
   },
   'contactForm.subline': {
-    es: 'Respondo en 24 horas hábiles. Si prefieres email directo: lbolanoa1@unicartagena.edu.co',
-    en: 'I reply within 24 business hours. Prefer direct email: lbolanoa1@unicartagena.edu.co',
+    es: 'Respondo en menos de 24 horas hábiles. Si prefieres contacto directo: lbolanoa1@unicartagena.edu.co o WhatsApp al +57 300 803 7847.',
+    en: 'I reply in under 24 business hours. Prefer direct contact: lbolanoa1@unicartagena.edu.co or WhatsApp at +57 300 803 7847.',
   },
   'contactForm.field.name': { es: 'Nombre', en: 'Name' },
   'contactForm.field.email': { es: 'Correo', en: 'Email' },
@@ -142,12 +142,16 @@ export const DICT: Dict = {
   'contactForm.submit': { es: 'Enviar mensaje', en: 'Send message' },
   'contactForm.submitting': { es: 'Enviando…', en: 'Sending…' },
   'contactForm.success': {
-    es: 'Recibido. Te respondo en 24h.',
-    en: 'Got it. I will reply in 24h.',
+    es: '¡Mensaje recibido! Te responderé en menos de 24 horas.',
+    en: 'Message received! I will reply within 24 hours.',
+  },
+  'contactForm.whatsappDirect': {
+    es: 'WhatsApp (+57 300 803 7847)',
+    en: 'WhatsApp (+57 300 803 7847)',
   },
   'contactForm.error': {
-    es: 'Algo falló. Intenta de nuevo o escríbeme directo.',
-    en: 'Something failed. Try again or email me directly.',
+    es: 'Hubo un error al enviar. Por favor intenta de nuevo o escríbeme directo.',
+    en: 'Something went wrong. Please try again or reach out directly.',
   },
   'contactForm.error.name': {
     es: 'Dime cómo te llamas.',
@@ -158,8 +162,8 @@ export const DICT: Dict = {
     en: 'I need a valid email to reply.',
   },
   'contactForm.error.message': {
-    es: 'Cuéntame un poco más (mínimo 20 caracteres).',
-    en: 'Tell me a bit more (at least 20 characters).',
+    es: 'Cuéntame un poco más (mínimo 10 caracteres).',
+    en: 'Tell me a bit more (at least 10 characters).',
   },
   'contactForm.downloadCv': { es: 'Descargar CV', en: 'Download CV' },
 

@@ -5,17 +5,13 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { gsap } from 'gsap';
-import { ArrowUpRight, Check, Mail } from 'lucide-react';
+import { ArrowUpRight, Check, Mail, MessageCircle } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n';
 import { SplitTextReveal } from '@/components/ui/SplitTextReveal';
 import { MaskReveal } from '@/components/ui/MaskReveal';
-import { CONTACT_EMAIL, CV_PDF_HREF } from '@/lib/data/nav';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_WHATSAPP, CV_PDF_HREF } from '@/lib/data/nav';
 import { cn } from '@/lib/cn';
 import { playSuccessSound } from '@/lib/sound';
-
-const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xdekkngp';
-const IS_DEMO = FORMSPREE_ENDPOINT.includes('REPLACE_ME');
 
 const CURRENCIES = ['USD', 'EUR', 'COP'] as const;
 type Currency = (typeof CURRENCIES)[number];
@@ -29,7 +25,7 @@ const schema = z.object({
     .optional()
     .refine((v) => !v || /^[\d.,\s]+$/.test(v), 'amount-format'),
   budgetCurrency: z.enum(CURRENCIES).optional(),
-  message: z.string().min(20),
+  message: z.string().min(5),
   _gotcha: z.string().max(0).optional(),
 });
 
@@ -39,6 +35,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 export function ContactForm() {
   const { lang, t } = useTranslation();
   const [status, setStatus] = useState<Status>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const formRef = useRef<HTMLFormElement | null>(null);
   const successRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,41 +71,47 @@ export function ContactForm() {
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
-    if (IS_DEMO) {
-      window.alert(
-        lang === 'es'
-          ? 'Modo demo. Configura NEXT_PUBLIC_FORMSPREE_ENDPOINT en .env.local para enviar mensajes reales.'
-          : 'Demo mode. Set NEXT_PUBLIC_FORMSPREE_ENDPOINT in .env.local to send real messages.',
-      );
-      return;
-    }
     setStatus('submitting');
+    setErrorMessage('');
     try {
       const amount = values.budgetAmount?.replace(/[^\d]/g, '') ?? '';
-      const payload = {
-        name: values.name,
-        email: values.email,
-        company: values.company || '',
-        budget: amount ? `${values.budgetCurrency} ${amount}` : 'A discutir',
-        message: values.message,
-        _subject: `[CV] ${values.name} — ${values.company || 'sin empresa'}`,
-      };
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const budgetText = amount
+        ? `${values.budgetCurrency || 'USD'} ${amount}`
+        : lang === 'es'
+          ? 'A discutir'
+          : 'To discuss';
+
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          company: values.company?.trim() || '',
+          budget: budgetText,
+          message: values.message,
+        }),
       });
-      if (!res.ok) throw new Error('formspree error');
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Error al enviar');
+      }
+
       playSuccessSound();
       fadeOutForm();
       setTimeout(() => {
         setStatus('success');
-        reset();
       }, 500);
-    } catch {
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : t('contactForm.error');
+      setErrorMessage(msg);
       setStatus('error');
       shake();
-      setTimeout(() => setStatus('idle'), 2500);
+      setTimeout(() => setStatus('idle'), 4000);
     }
   };
 
@@ -151,6 +154,18 @@ export function ContactForm() {
                 <Mail size={14} />
                 {CONTACT_EMAIL}
               </a>
+
+              <a
+                href={CONTACT_WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="open"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-5 py-3 text-sm font-medium text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+              >
+                <MessageCircle size={15} className="text-emerald-400" />
+                WhatsApp ({CONTACT_PHONE})
+              </a>
+
               <a
                 href={CV_PDF_HREF}
                 download
@@ -160,27 +175,40 @@ export function ContactForm() {
                 {t('contactForm.downloadCv')}
               </a>
             </div>
-
-            {IS_DEMO && (
-              <p className="mt-6 rounded-md border border-amber-500/40 bg-amber-500/5 px-4 py-3 font-mono text-[11px] uppercase tracking-wider text-amber-300/90">
-                {lang === 'es'
-                  ? 'Modo demo · configura NEXT_PUBLIC_FORMSPREE_ENDPOINT'
-                  : 'Demo mode · set NEXT_PUBLIC_FORMSPREE_ENDPOINT'}
-              </p>
-            )}
           </div>
 
           <div className="lg:col-span-7">
             {status === 'success' ? (
               <div ref={successRef}>
                 <MaskReveal>
-                  <div className="flex items-start gap-4 rounded-xl border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/5 p-6">
-                    <Check className="mt-1 text-[var(--color-accent)]" size={22} />
-                    <div>
-                      <p className="font-serif text-xl">{t('contactForm.success')}</p>
-                      <p className="mt-2 text-sm text-[var(--color-text-dim)]">
-                        {CONTACT_EMAIL}
-                      </p>
+                  <div className="flex flex-col gap-5 rounded-xl border border-emerald-500/50 bg-emerald-950/20 p-6 backdrop-blur-sm md:p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                        <Check size={26} />
+                      </div>
+                      <div>
+                        <p className="font-serif text-2xl text-white">
+                          {t('contactForm.success')}
+                        </p>
+                        <p className="mt-2 text-sm text-[var(--color-text-dim)]">
+                          {lang === 'es'
+                            ? `Tu mensaje ha sido enviado a Leider Darío (${CONTACT_EMAIL}). Te responderé lo más pronto posible.`
+                            : `Your message has been delivered to Leider Darío (${CONTACT_EMAIL}). I will reply shortly.`}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setStatus('idle');
+                          reset();
+                        }}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-xs font-mono uppercase tracking-wider text-[var(--color-text-dim)] transition-colors hover:border-[var(--color-text)] hover:text-white"
+                      >
+                        {lang === 'es' ? '← Enviar otro mensaje' : '← Send another message'}
+                      </button>
                     </div>
                   </div>
                 </MaskReveal>
@@ -308,7 +336,7 @@ export function ContactForm() {
 
                 <div className="flex items-center justify-between gap-4 pt-2">
                   {status === 'error' && (
-                    <p className="text-sm text-red-400">{t('contactForm.error')}</p>
+                    <p className="text-sm text-red-400">{errorMessage || t('contactForm.error')}</p>
                   )}
                   <button
                     type="submit"

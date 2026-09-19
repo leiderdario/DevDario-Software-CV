@@ -12,6 +12,7 @@ export const NAV_LINKS: NavLink[] = [
 export const CV_PDF_HREF = '/cv/Leider-Dario-CV.pdf';
 export const CONTACT_EMAIL = 'lbolanoa1@unicartagena.edu.co';
 export const CONTACT_PHONE = '+57 300 803 7847';
+export const CONTACT_WHATSAPP = 'https://wa.me/573008037847';
 
 export const FOOTER_COLUMNS = [
   {
@@ -19,7 +20,7 @@ export const FOOTER_COLUMNS = [
     title: { es: 'Contacto', en: 'Contact' },
     items: [
       { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-      { label: CONTACT_PHONE, href: 'tel:+573008037847' },
+      { label: `WhatsApp: ${CONTACT_PHONE}`, href: CONTACT_WHATSAPP },
       { label: 'Medellín / Cartagena, Colombia', href: '#' },
     ],
   },

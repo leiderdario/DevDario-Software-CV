@@ -9,16 +9,19 @@ import { Draggable } from 'gsap/Draggable';
 import { InertiaPlugin } from 'gsap/InertiaPlugin';
 import { Flip } from 'gsap/Flip';
 
-let registered = false;
-
-export function GsapProvider({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    if (registered) return;
-    gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, Draggable, InertiaPlugin, Flip);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, Draggable, InertiaPlugin, Flip);
+  try {
     CustomEase.create('expo-out', '0.16, 1, 0.3, 1');
     CustomEase.create('smooth', '0.65, 0, 0.35, 1');
     CustomEase.create('snap', '0.85, 0, 0.15, 1');
-    registered = true;
+  } catch {}
+}
+
+export function GsapProvider({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    // Asegura que los plugins esten registrados tras la hidratacion
+    gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, Draggable, InertiaPlugin, Flip);
   }, []);
 
   return <>{children}</>;

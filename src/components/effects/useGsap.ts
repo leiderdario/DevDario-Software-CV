@@ -2,6 +2,11 @@
 
 import { useLayoutEffect, useRef, type DependencyList, type RefObject } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function useGsap(
   factory: (ctx: gsap.Context) => void | (() => void),
